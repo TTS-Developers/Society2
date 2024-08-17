@@ -14,7 +14,7 @@
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <label for="invoicenumber" class="form-label">Invoice No</label>
-                                <input type="text" class="form-control" id="invoicenumber" name="Invoicenumber" placeholder="Invoice Number">
+                                <input type="text" value="{{ session('invoice_number')}}" class="form-control" id="invoicenumber" name="Invoicenumber" placeholder="Invoice Number" readonly>
                             </div>
                             <div class="col-md-6">
                                 <label for="block" class="form-label">Block</label>
@@ -82,18 +82,27 @@
                                     <td>
                                         <select type="text" class="form-control" name="Invoice_type[]">
                                             <option>Select Invoice Type</option>
-                                                @foreach ($inv_type as $row)
-                                                    <option value="{{$row->id}}">{{$row->type_name}}</option>
-                                                @endforeach
+                                            @foreach ($inv_type as $row)
+                                                <option value="{{$row->id}}">{{$row->type_name}}</option>
+                                            @endforeach
                                         </select>
                                     </td>
-                                    <td><input type="text" class="form-control" name="amount[]"></td>
+                                    <td><input type="text" class="form-control amount-field" name="amount[]" oninput="calculateTotal()"></td>
                                     <td><button type="button" class="btn btn-success" onclick="addRow()">+</button></td>
                                     <td><button type="button" class="btn btn-danger" onclick="removeRow(this)">-</button></td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
+                    <div class="row mt-3">
+                        <div class="col-md-3 text-start">
+                            <label for="totalAmount" class="form-label">Total Amount:</label>
+                        </div>
+                        <div class="col-md-3 ms-auto">
+                            <input type="text" class="form-control" id="totalAmount" readonly>
+                        </div>
+                    </div>
+                    
                     <div class="col-12 mt-3">
                         <button type="submit" class="btn btn-light px-5">Ganrate Invoice</button>
                     </div>
@@ -104,4 +113,46 @@
         </div>
     </div>
 </div>
-@include('superadmin.invoice.script')
+<script>
+    function calculateTotal() {
+    let total = 0;
+    const amounts = document.querySelectorAll('.amount-field');
+    amounts.forEach(function(amount) {
+        const value = parseFloat(amount.value);
+        if (!isNaN(value)) {
+            total += value;
+        }
+    });
+    document.getElementById('totalAmount').value = total.toFixed(2);
+}
+
+function addRow() {
+    const table = document.getElementById('productTable');
+    const rowCount = table.rows.length;
+    const row = table.insertRow(rowCount);
+
+    row.innerHTML = `
+        <td>${rowCount + 1}</td>
+        <td>
+            <select type="text" class="form-control" name="Invoice_type[]">
+                <option>Select Invoice Type</option>
+                @foreach ($inv_type as $row)
+                    <option value="{{$row->id}}">{{$row->type_name}}</option>
+                @endforeach
+            </select>
+        </td>
+        <td><input type="text" class="form-control amount-field" name="amount[]" oninput="calculateTotal()"></td>
+        <td><button type="button" class="btn btn-success" onclick="addRow()">+</button></td>
+        <td><button type="button" class="btn btn-danger" onclick="removeRow(this)">-</button></td>
+    `;
+
+    calculateTotal(); // Recalculate total after adding a row
+}
+
+function removeRow(button) {
+    const row = button.closest('tr');
+    row.remove();
+    calculateTotal(); // Recalculate total after removing a row
+}
+
+    </script>

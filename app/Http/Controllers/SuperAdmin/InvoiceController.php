@@ -106,6 +106,18 @@ class InvoiceController extends Controller
 
     public function AdditionalInvoice()
     {
+        $latestadditionalinvoice = DB::table('additional_invoice_master')->latest('id')->first();
+        if ($latestadditionalinvoice) {
+            $latestadditionalnyumber = (int) substr($latestadditionalinvoice->invoice_no, 4);
+            $nextadditionalnyumber = $latestadditionalnyumber + 1;
+        }
+        else {
+            $nextadditionalnyumber = 1;
+        }
+        $additionalinvoiceNumber = 'INV-' . str_pad($nextadditionalnyumber, 4, '0', STR_PAD_LEFT);
+        session(['invoice_number' => $additionalinvoiceNumber]);
+
+        
         $block = Block::get();
         $inv_type = Inv_type::get();
         return view('superadmin.invoice.additional_invoice', compact('block', 'inv_type'));
