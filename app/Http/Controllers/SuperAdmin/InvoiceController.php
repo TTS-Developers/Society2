@@ -78,31 +78,38 @@ class InvoiceController extends Controller
                          ->with('success', 'Invoice created successfully!');
     }
 
-public function showInvoice($invoiceId)
-{
-    $invoice = DB::table('inv_master')->where('id', $invoiceId)->first();
-   $invoiceDetails = DB::table('inv_detail')
-    ->join('invoice_type', 'inv_detail.Invoice_type', '=', 'invoice_type.id')
-    ->where('inv_detail.inv_master_id', $invoiceId)
-    ->select(
-        'invoice_type.type_name',
-        'inv_detail.id',
-        'inv_detail.inv_master_id',
-        'inv_detail.Invoice_type',
-        'inv_detail.amount',
-        'inv_detail.created_at',
-        'inv_detail.updated_at'
-    )
-    ->get();
+    public function showInvoice($invoiceId)
+    {
+        $invoice = DB::table('inv_master')->where('id', $invoiceId)->first();
+        $invoiceDetails = DB::table('inv_detail')
+        ->join('invoice_type', 'inv_detail.Invoice_type', '=', 'invoice_type.id')
+        ->where('inv_detail.inv_master_id', $invoiceId)
+        ->select(
+            'invoice_type.type_name',
+            'inv_detail.id',
+            'inv_detail.inv_master_id',
+            'inv_detail.Invoice_type',
+            'inv_detail.amount',
+            'inv_detail.created_at',
+            'inv_detail.updated_at'
+        )
+        ->get();
 
-    $totalAmount = $invoiceDetails->sum('amount');
+        $totalAmount = $invoiceDetails->sum('amount');
 
-    return view('superadmin.invoice.invoice', [
-        'invoice' => $invoice,
-        'invoiceDetails' => $invoiceDetails,
-        'totalAmount' => $totalAmount
-    ]);
-}
+        return view('superadmin.invoice.invoice', [
+            'invoice' => $invoice,
+            'invoiceDetails' => $invoiceDetails,
+            'totalAmount' => $totalAmount
+        ]);
+    }
+
+    public function AdditionalInvoice()
+    {
+        $block = Block::get();
+        $inv_type = Inv_type::get();
+        return view('superadmin.invoice.additional_invoice', compact('block', 'inv_type'));
+    }
 
 
 

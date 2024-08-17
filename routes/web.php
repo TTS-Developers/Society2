@@ -88,6 +88,8 @@ Route::controller(InvoiceController::class)->group(function(){
     Route::get('/superadmin/invoice/create', 'create')->name('invoice.create');
     Route::POST('/invoice/create', 'store')->name('invoice.store');
     Route::get('invoice/{id}',  'showInvoice')->name('invoice.show');
+    Route::get('/additional/invoice/create','AdditionalInvoice')->name('additional.invoive');
+    Route::POST('additional/create', 'AdditionalStore')->name('addi_invoice.store');
     Route::get('/get-flats/{blockId}',  'getFlats');
 
 });
