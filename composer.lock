@@ -4,7 +4,11 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
+<<<<<<< HEAD
     "content-hash": "26208a47109c0e3d04f6cda4074be7be",
+=======
+    "content-hash": "a349383c5500fe749471b3bfb83df832",
+>>>>>>> 9d37eebfb604fa5f2bc30170b0d0aa526dddb028
     "packages": [
         {
             "name": "brick/math",
@@ -507,6 +511,7 @@
             "time": "2023-10-06T06:47:41+00:00"
         },
         {
+<<<<<<< HEAD
             "name": "fakerphp/faker",
             "version": "v1.23.1",
             "source": {
@@ -570,6 +575,8 @@
             "time": "2024-01-02T13:46:09+00:00"
         },
         {
+=======
+>>>>>>> 9d37eebfb604fa5f2bc30170b0d0aa526dddb028
             "name": "fruitcake/php-cors",
             "version": "v1.3.0",
             "source": {
@@ -1114,6 +1121,7 @@
             "time": "2023-12-03T19:50:20+00:00"
         },
         {
+<<<<<<< HEAD
             "name": "intervention/gif",
             "version": "4.1.0",
             "source": {
@@ -1250,6 +1258,8 @@
             "time": "2024-07-05T13:35:01+00:00"
         },
         {
+=======
+>>>>>>> 9d37eebfb604fa5f2bc30170b0d0aa526dddb028
             "name": "laravel/framework",
             "version": "v10.48.19",
             "source": {
@@ -5878,6 +5888,72 @@
     ],
     "packages-dev": [
         {
+<<<<<<< HEAD
+=======
+            "name": "fakerphp/faker",
+            "version": "v1.23.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/FakerPHP/Faker.git",
+                "reference": "bfb4fe148adbf78eff521199619b93a52ae3554b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/FakerPHP/Faker/zipball/bfb4fe148adbf78eff521199619b93a52ae3554b",
+                "reference": "bfb4fe148adbf78eff521199619b93a52ae3554b",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.4 || ^8.0",
+                "psr/container": "^1.0 || ^2.0",
+                "symfony/deprecation-contracts": "^2.2 || ^3.0"
+            },
+            "conflict": {
+                "fzaninotto/faker": "*"
+            },
+            "require-dev": {
+                "bamarni/composer-bin-plugin": "^1.4.1",
+                "doctrine/persistence": "^1.3 || ^2.0",
+                "ext-intl": "*",
+                "phpunit/phpunit": "^9.5.26",
+                "symfony/phpunit-bridge": "^5.4.16"
+            },
+            "suggest": {
+                "doctrine/orm": "Required to use Faker\\ORM\\Doctrine",
+                "ext-curl": "Required by Faker\\Provider\\Image to download images.",
+                "ext-dom": "Required by Faker\\Provider\\HtmlLorem for generating random HTML.",
+                "ext-iconv": "Required by Faker\\Provider\\ru_RU\\Text::realText() for generating real Russian text.",
+                "ext-mbstring": "Required for multibyte Unicode string functionality."
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Faker\\": "src/Faker/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "François Zaninotto"
+                }
+            ],
+            "description": "Faker is a PHP library that generates fake data for you.",
+            "keywords": [
+                "data",
+                "faker",
+                "fixtures"
+            ],
+            "support": {
+                "issues": "https://github.com/FakerPHP/Faker/issues",
+                "source": "https://github.com/FakerPHP/Faker/tree/v1.23.1"
+            },
+            "time": "2024-01-02T13:46:09+00:00"
+        },
+        {
+>>>>>>> 9d37eebfb604fa5f2bc30170b0d0aa526dddb028
             "name": "filp/whoops",
             "version": "2.15.4",
             "source": {
@@ -8397,5 +8473,9 @@
         "php": "^8.1"
     },
     "platform-dev": [],
+<<<<<<< HEAD
     "plugin-api-version": "2.6.0"
+=======
+    "plugin-api-version": "2.3.0"
+>>>>>>> 9d37eebfb604fa5f2bc30170b0d0aa526dddb028
 }

@@ -120,6 +120,22 @@
 						</li>
 					</ul>
 				</li>
+				<li>
+					<a href="javascript:;" class="has-arrow">
+						<div class="parent-icon"><i class="bx bx-category"></i>
+						</div>
+						<div class="menu-title">Invoice</div>
+					</a>
+					<ul>
+						<li> <a href="{{route('invoice.create')}}"><i class='bx bx-radio-circle'></i>Add All User Invoice</a>
+						</li>
+
+						<li> <a href="{{route('additional.invoive')}}"><i class='bx bx-radio-circle'></i>Add Additional User Invoice</a>
+						</li>
+						<li> <a href="{{route('invoice.index')}}"><i class='bx bx-radio-circle'></i>Manage Invoice</a>
+						</li>
+					</ul>
+				</li>
 
                 <li>
 					<a href="javascript:;" class="has-arrow">
@@ -223,7 +239,6 @@
 						</li>
 					</ul>
 				</li>
-
 				<li>
 					<a href="javascript:;" class="has-arrow">
 						<div class="parent-icon"><i class="bx bx-category"></i>
@@ -232,6 +247,14 @@
 					</a>
 					<ul>
 						<li> <a href="{{route('all.superadmin.user')}}"><i class='bx bx-radio-circle'></i>Admin User Register</a>
+                <li>
+					<a href="javascript:;" class="has-arrow">
+						<div class="parent-icon"><i class="bx bx-category"></i>
+						</div>
+						<div class="menu-title">User Register</div>
+					</a>
+					<ul>
+						<li> <a href="app-emailbox.html"><i class='bx bx-radio-circle'></i>User Register</a>
 						</li>
 					</ul>
 				</li>

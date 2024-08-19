@@ -26,6 +26,8 @@
                     <td>{{$count++}}</td>
                     <td>{{$row->BlockNumber}}</td>
                     <td>{{$row->FlatNumber}}</td>
+                    <td>{{ $row->Block_name}}</td>
+                    <td>{{$row->flat_no}}</td>
                     <td>{{$row->OwnerName}}</td>
                     <td>{{$row->OwnerEmail}}</td>
                     <td>{{$row->nic}}</td>

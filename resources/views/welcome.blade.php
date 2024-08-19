@@ -196,6 +196,26 @@
                                                     <a href="javascript:;" class="input-group-text bg-transparent"><i class='bx bx-hide'></i></a>
                                                 </div>
                                             </div>
+                                        <form class="row g-3" action="{{ route('flat.login') }}" method="POST">
+                                            @csrf
+
+                                            <div class="col-md-12">
+                                                <label for="user_email" class="form-label">email</label>
+                                                <div class="input-group" id="show_hide_email_user">
+                                                    <input type="email" class="form-control border-end-0" name="email" id="user_Email" placeholder="Enter email">
+                                                    <a href="javascript:;" class="input-group-text bg-transparent"><i class='bx bx-hide'></i></a>
+                                                </div>
+                                            </div>
+                                          
+                                   
+                                          
+                                            <div class="col-md-12">
+                                                <label for="user_password" class="form-label">Password</label>
+                                                <div class="input-group" id="show_hide_password_user">
+                                                    <input type="password" class="form-control border-end-0" name="password" id="user_password" placeholder="Enter Password">
+                                                    <a href="javascript:;" class="input-group-text bg-transparent"><i class='bx bx-hide'></i></a>
+                                                </div>
+                                            </div>
                                             <div class="col-12">
                                                 <div class="d-grid">
                                                     <button type="submit" class="btn btn-light">Sign up</button>
@@ -272,7 +292,8 @@
             </div>
         </div>
     </div>
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         function showForm(formId) {
             const forms = document.querySelectorAll('.form-section');
@@ -281,6 +302,30 @@
             });
             document.getElementById(formId).classList.add('active');
         }
+
+
+        $(document).ready(function() {
+        $('#block').change(function() {
+            var blockId = $(this).val();
+            if(blockId) {
+                $.ajax({
+                    url: '/get-flats/'+blockId,
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function(data) {
+                        $('#flat_no').empty();
+                        $('#flat_no').append('<option value="" selected>Select Flat No</option>');
+                        $.each(data, function(key, value) {
+                            $('#flat_no').append('<option value="'+ value.id +'">'+ value.flat_no +'</option>');
+                        });
+                    }
+                });
+            } else {
+                $('#flat_no').empty();
+                $('#flat_no').append('<option value="" selected>Select Flat No</option>');
+            }
+        });
+    });
     </script>
 </body>
 </html>

@@ -15,6 +15,12 @@ class FlatController extends Controller
     {
         $flat = Flat::get();
         return view('superadmin.Flat.index', compact('flat'));
+        $flats = Flat::with(['block', 'flatArea'])
+        ->select('flats.id', 'flats.floor', 'flats.block', 'flats.created_at', 'flats.updated_at', 'flat_area.flat_no', 'block.Block_name')
+        ->join('block', 'flats.block', '=', 'block.id')
+        ->join('flat_area', 'flats.flat_no', '=', 'flat_area.id')
+        ->get();
+        return view('superadmin.Flat.index', compact('flats'));
     }
 
     public function create()

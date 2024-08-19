@@ -13,10 +13,17 @@ return new class extends Migration
     {
         Schema::create('flats', function (Blueprint $table) {
             $table->id();
+<<<<<<< HEAD
             $table->string('flat_no', 255)->default(''); // 'flat_no' varchar(255) with default empty string
             $table->string('floor', 255)->default(''); // 'floor' varchar(255) with default empty string
             $table->string('block', 255)->default(''); // 'block' varchar(255) with default empty string
             $table->string('updated_by', 255)->default(''); // 'updated_by' varchar(255) with default empty string
+=======
+            $table->string('flat_no', 255)->default(''); 
+            $table->string('floor', 255)->default('');
+            $table->string('block', 255)->default('');
+            $table->string('created_at', 255)->default(''); 
+>>>>>>> 9d37eebfb604fa5f2bc30170b0d0aa526dddb028
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP'));
            
         });

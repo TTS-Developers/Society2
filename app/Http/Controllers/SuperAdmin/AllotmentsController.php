@@ -13,7 +13,27 @@ class AllotmentsController extends Controller
 {
     public function index()
     {
-        $allot = Allotment::get();
+//        $allot = Allotment::get();
+        $allot = Allotment::with(['block', 'flatArea'])
+        ->select(
+            'block.Block_name',
+            'flat_area.flat_no',
+            'allotments_a.id',
+            'allotments_a.OwnerName',
+            'allotments_a.OwnerEmail',
+            'allotments_a.nic',
+            'allotments_a.OwnerContactNumber',
+            'allotments_a.OwnerAlternateContactNumber',
+            'allotments_a.OwnerMemberCount',
+            'allotments_a.status',
+            'allotments_a.date',
+            'allotments_a.created_at',
+            'allotments_a.updated_at',
+            'allotments_a.password'
+        )
+        ->join('block', 'allotments_a.BlockNumber', '=', 'block.id')
+        ->join('flat_area', 'allotments_a.FlatNumber', '=', 'flat_area.id')
+        ->get();
         return view('superadmin.allotments.index', compact('allot'));
     }
 
@@ -53,6 +73,7 @@ class AllotmentsController extends Controller
         ]);
 
         return redirect()->route('allotments.create')->with('success', 'Allotment added successfully');
+
     }
     public function getFlats($blockId)
     {

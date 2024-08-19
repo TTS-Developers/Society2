@@ -20,9 +20,9 @@
                 @forelse ($flat as $row )
                 <tr>
                     <td>{{ $count++ }}</td>
-                    <td>{{ $row->flat_no}}</td>
-                    <td>{{ $row->block}}</td>
-                    <td>{{ $row->floor}}</td>
+                    <td>{{ $row->flat_no }}</td>
+                    <td>{{ $row->Block_name }}</td>
+                    <td>{{ $row->floor }}</td>
                     <td>
                         <a href="{{route('flat.edit', $row->id)}}" class="edit-btn"
                              title="Edit">

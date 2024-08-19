@@ -6,14 +6,22 @@
     "license": "MIT",
     "require": {
         "php": "^8.1",
+<<<<<<< HEAD
         "fakerphp/faker": "^1.23",
         "guzzlehttp/guzzle": "^7.2",
         "intervention/image": "*",
+=======
+        "guzzlehttp/guzzle": "^7.2",
+>>>>>>> 9d37eebfb604fa5f2bc30170b0d0aa526dddb028
         "laravel/framework": "^10.10",
         "laravel/sanctum": "^3.3",
         "laravel/tinker": "^2.8"
     },
     "require-dev": {
+<<<<<<< HEAD
+=======
+        "fakerphp/faker": "^1.9.1",
+>>>>>>> 9d37eebfb604fa5f2bc30170b0d0aa526dddb028
         "laravel/breeze": "^1.29",
         "laravel/pint": "^1.0",
         "laravel/sail": "^1.18",

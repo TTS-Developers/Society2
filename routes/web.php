@@ -1,5 +1,6 @@
 <?php
 
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SuperAdmin\FlatController;
@@ -8,7 +9,8 @@ use App\Http\Controllers\SuperAdmin\FlatAreaController;
 use App\Http\Controllers\SuperAdmin\AllotmentsController;
 use App\Http\Controllers\SuperAdmin\Invoice_typeController;
 use App\Http\Controllers\SuperAdmin\SuperAdminRoleController;
-
+use App\Http\Controllers\User\MainController;
+use App\Http\Controllers\User\UserInvoiceController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,6 +26,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+Route::get('/', [HomeController::class, 'index']);
+Route::get('/get-flats/{blockId}', [HomeController::class, 'getFlats']);
+Route::post('flat-login', [HomeController::class, 'login'])->name('flat.login');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -33,7 +40,6 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
-
 
 Route::controller(SuperAdminRoleController::class)->group(function (){
     Route::get('/all', 'AllSuperAdminRole')->name('all.superadmin.user');
@@ -56,6 +62,9 @@ Route::controller(Invoice_typeController::class)->group(function(){
      Route::POST('/invoice/create', 'store')->name('invoice.store');
      Route::put('/invoice/update',  'update')->name('invoice.update');
      Route::delete('/inovice/delete/{id}', 'destroy')->name('invoice.delete');
+     Route::POST('/invoice/type/create', 'store')->name('type.create');
+     Route::put('/invoice/type/update',  'update')->name('invoice.update');
+     Route::delete('/inovice/type/delete/{id}', 'destroy')->name('invoice.delete');
 });
 
 Route::controller(FlatAreaController::class)->group(function(){
@@ -84,9 +93,31 @@ Route::controller(AllotmentsController::class)->group(function(){
     Route::POST('/allotments', 'store')->name('allotments.store');
     Route::delete('/allotments/delete/{id}', 'destroy')->name('allot.delete');
     Route::get('/superadmin/allotments/edit/{id}', 'edit')->name('allot.edit');
+    Route::get('/get-flats/{blockId}',  'getFlats');
+});
 
+Route::controller(InvoiceController::class)->group(function(){
+    Route::get('/superadmin/invoice', 'index')->name('invoice.index');
+    Route::get('/superadmin/invoice/create', 'create')->name('invoice.create');
+    Route::POST('/invoice/create', 'store')->name('invoice.store');
+    Route::get('invoice/{id}',  'showInvoice')->name('invoice.show');
+    Route::get('/additional/invoice/create','AdditionalInvoice')->name('additional.invoive');
+    Route::POST('additional/create', 'AdditionalStore')->name('addi_invoice.store');
+    Route::get('/additional/invoice/{id}', 'AdditionalInvoiceshow')->name('additional_invoice.show');
     Route::get('/get-flats/{blockId}',  'getFlats');
 
+});
+
+// User Routes
+
+Route::controller(MainController::class)->group(function(){
+    Route::get('user/dashboard', 'index')->name('user.dashboard');
+});
+
+
+Route::controller(UserInvoiceController::class)->group(function(){
+    Route::get('/user/invoice/view/', 'viewInvoice')->name('view.invoice');
+    Route::get('/user/additional/invoice', 'viewadditionalinvoice')->name('view_additional.invoice');
 });
 
 require __DIR__.'/auth.php';

@@ -22,4 +22,15 @@ class Allotment extends Model implements Authenticatable
     protected $hidden = [
         'password',
     ];
+
+    public function block()
+    {
+        return $this->belongsTo(Block::class, 'BlockNumber');
+    }
+
+    // Relationship with FlatArea
+    public function flatArea()
+    {
+        return $this->belongsTo(FlatArea::class, 'FlatNumber');
+    }
 }

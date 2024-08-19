@@ -21,15 +21,12 @@
 	<link href="../../../css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 	<link href="/assets/css/app.css" rel="stylesheet">
 	<link href="/assets/css/icons.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
 	<title>House Management | @yield('page-title')</title>
 </head>
 
 <body class="bg-theme bg-theme2">
-@php
-   $prefix = Request::route()->getPrefix();
-   $route = Route::Current()->getName();
-@endphp
 	<!--wrapper-->
 	<div class="wrapper">
 		<!--sidebar wrapper -->
@@ -47,7 +44,7 @@
 			<!--navigation-->
 			<ul class="metismenu" id="menu">
 				<li>
-					<a href="javascript:;" >
+					<a href="{{route('dashboard')}}" >
 
 						<div class="menu-title">Dashboard</div>
 					</a>
@@ -56,191 +53,23 @@
 					<a href="javascript:;" class="has-arrow">
 						<div class="parent-icon"><i class="bx bx-category"></i>
 						</div>
-						<div class="menu-title">Block</div>
+						<div class="menu-title">Invoice</div>
 					</a>
 					<ul>
 						
-						<li> <a href="{{route('block.index')}}"><i class='bx bx-radio-circle'></i>Manage Block</a>
+						<li> <a href="{{route('view.invoice')}}"><i class='bx bx-radio-circle'></i>View Monthlay Invoice</a>
+						</li>
+						<li> <a href="{{route('view_additional.invoice')}}"><i class='bx bx-radio-circle'></i>View Additional Invoice</a>
 						</li>
 
 					</ul>
 				</li>
 
-					<li>
-					<a href="javascript:;" class="has-arrow">
-						<div class="parent-icon"><i class="bx bx-category"></i>
-						</div>
-						<div class="menu-title">Invoice Type</div>
-					</a>
-					<ul>
-						
-						<li> <a href="{{route('invoice.type')}}"><i class='bx bx-radio-circle'></i>Manage Type</a>
-						</li>
-
-					</ul>
-				</li>
-
-				<li>
-					<a href="javascript:;" class="has-arrow">
-						<div class="parent-icon"><i class="bx bx-category"></i>
-						</div>
-						<div class="menu-title">Flat Area</div>
-					</a>
-					<ul>
-						<li> <a href="{{route('flatarea.index')}}"><i class='bx bx-radio-circle'></i>Add Flat Area</a>
-						</li>
-						<li> <a href="{{route('flatarea.create')}}"><i class='bx bx-radio-circle'></i>Manage Flat Area</a>
-						</li>
-
-					</ul>
-				</li>
-
-                <li>
-					<a href="javascript:;" class="has-arrow">
-						<div class="parent-icon"><i class="bx bx-category"></i>
-						</div>
-						<div class="menu-title">Flats</div>
-					</a>
-					<ul>
-						<li> <a href="{{route('flat.index')}}"><i class='bx bx-radio-circle'></i>Add Flat</a>
-						</li>
-						<li> <a href="{{route('flat.create')}}"><i class='bx bx-radio-circle'></i>Manage Flat</a>
-						</li>
-
-					</ul>
-				</li>
+				
 
 
-                <li>
-					<a href="javascript:;" class="has-arrow">
-						<div class="parent-icon"><i class="bx bx-category"></i>
-						</div>
-						<div class="menu-title">Visitors</div>
-					</a>
-					<ul>
-						<li> <a href="#"><i class='bx bx-radio-circle'></i>Manage Visitors</a>
-						</li>
-					</ul>
-				</li>
+				
 
-                <li>
-					<a href="javascript:;" class="has-arrow">
-						<div class="parent-icon"><i class="bx bx-category"></i>
-						</div>
-						<div class="menu-title">Allotments</div>
-					</a>
-					<ul>
-						<li> <a href="#"><i class='bx bx-radio-circle'></i>Add Allotments</a>
-						</li>
-						<li> <a href="#"><i class='bx bx-radio-circle'></i>Manage Allotments</a>
-						</li>
-					</ul>
-				</li>
-
-                <li>
-					<a href="javascript:;" class="has-arrow">
-						<div class="parent-icon"><i class="bx bx-category"></i>
-						</div>
-						<div class="menu-title">Complaints</div>
-					</a>
-					<ul>
-						<li> <a href="#"><i class='bx bx-radio-circle'></i>Unresolved</a>
-						</li>
-						<li> <a href="#"><i class='bx bx-radio-circle'></i>In-progress</a>
-						</li>
-                        <li> <a href="#"><i class='bx bx-radio-circle'></i>Resolved</a>
-						</li>
-                        <li> <a href="#"><i class='bx bx-radio-circle'></i>All Complaints</a>
-						</li>
-					</ul>
-				</li>
-
-                <li>
-					<a href="javascript:;" class="has-arrow">
-						<div class="parent-icon"><i class="bx bx-category"></i>
-						</div>
-						<div class="menu-title">Bills</div>
-					</a>
-					<ul>
-						<li> <a href="#"><i class='bx bx-radio-circle'></i>Add Bill</a>
-						</li>
-						<li> <a href="#"><i class='bx bx-radio-circle'></i>Manage Bill</a>
-						</li>
-					</ul>
-				</li>
-
-                <li>
-					<a href="javascript:;" class="has-arrow">
-						<div class="parent-icon"><i class="bx bx-category"></i>
-						</div>
-						<div class="menu-title">Security</div>
-					</a>
-					<ul>
-						<li> <a href="#"><i class='bx bx-radio-circle'></i>Add Security</a>
-						</li>
-						<li> <a href="#"><i class='bx bx-radio-circle'></i>Manage Security</a>
-						</li>
-					</ul>
-				</li>
-
-                <li>
-					<a href="javascript:;" class="has-arrow">
-						<div class="parent-icon"><i class="bx bx-category"></i>
-						</div>
-						<div class="menu-title">ShoutBox</div>
-					</a>
-					<ul>
-						<li> <a href="#"><i class='bx bx-radio-circle'></i>Announcement</a>
-						</li>
-
-					</ul>
-				</li>
-
-                <li>
-					<a href="javascript:;" class="has-arrow">
-						<div class="parent-icon"><i class="bx bx-category"></i>
-						</div>
-						<div class="menu-title">Report</div>
-					</a>
-					<ul>
-						<li> <a href="#"><i class='bx bx-radio-circle'></i>Report Flats</a>
-						</li>
-						<li> <a href="#"><i class='bx bx-radio-circle'></i>Report Visitors</a>
-						</li>
-					</ul>
-				</li>
-
-                <li>
-					<a href="javascript:;" class="has-arrow">
-						<div class="parent-icon"><i class="bx bx-category"></i>
-						</div>
-						<div class="menu-title">Maintenance Report</div>
-					</a>
-					<ul>
-						<li> <a href="app-emailbox.html"><i class='bx bx-radio-circle'></i>All Maintenance Report</a>
-						</li>
-						<li> <a href="app-chat-box.html"><i class='bx bx-radio-circle'></i>Manage Maintenance</a>
-						</li>
-                        <li> <a href="app-chat-box.html"><i class='bx bx-radio-circle'></i>Detail Maintenance</a>
-						</li>
-					</ul>
-				</li>
-
-                <li>
-					<a href="javascript:;" class="has-arrow">
-						<div class="parent-icon"><i class="bx bx-category"></i>
-						</div
-						<div class="menu-title">Admin User Register</div>
-					</a>
-					<ul>
-						<li> <a href="{{route('all.superadmin.user')}}"><i class='bx bx-radio-circle'></i>Admin User Register</a>
-						<div class="menu-title">User Register</div>
-					</a>
-					<ul>
-						<li> <a href="app-emailbox.html"><i class='bx bx-radio-circle'></i>User Register</a>
-						</li>
-					</ul>
-				</li>
 			</ul>
 			<!--end navigation-->
 		</div>
@@ -829,7 +658,6 @@
 					<div class="user-box dropdown px-3">
 						<a class="d-flex align-items-center nav-link dropdown-toggle gap-3 dropdown-toggle-nocaret" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 							<img src="/assets/images/avatars/avatar-2.png" class="user-img" alt="user avatar">
-							<img src="/assets/images/avatars/avatar-20.png" class="user-img" alt="user avatar">
 							<div class="user-info">
 								<p class="user-name mb-0">{{ Auth::user()->name }}</p>
 								<p class="designattion mb-0">Web Designer</p>
@@ -849,7 +677,7 @@
 							<li>
 								<div class="dropdown-divider mb-0"></div>
 							</li>
-								<form method="POST" action="{{ route('logout') }}" class="dropdown-item d-flex align-items-center">
+							<form method="POST" action="{{ route('logout') }}" class="dropdown-item d-flex align-items-center">
     @csrf
     <button type="submit" class="btn btn-link">
         <i class="bx bx-log-out-circle"></i>
