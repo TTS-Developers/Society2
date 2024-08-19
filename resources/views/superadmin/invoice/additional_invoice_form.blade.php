@@ -99,7 +99,7 @@
                             <label for="totalAmount" class="form-label">Total Amount:</label>
                         </div>
                         <div class="col-md-3 ms-auto">
-                            <input type="text" class="form-control" id="totalAmount" readonly>
+                            <input type="text" class="form-control" name="total" id="totalAmount" readonly>
                         </div>
                     </div>
                     
@@ -113,7 +113,32 @@
         </div>
     </div>
 </div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
+$(document).ready(function() {
+        $('#block').change(function() {
+            var blockId = $(this).val();
+            if(blockId) {
+                $.ajax({
+                    url: '/get-flats/'+blockId,
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function(data) {
+                        $('#flat_no').empty();
+                        $('#flat_no').append('<option value="" selected>Select Flat No</option>');
+                        $.each(data, function(key, value) {
+                            $('#flat_no').append('<option value="'+ value.id +'">'+ value.flat_no +'</option>');
+                        });
+                    }
+                });
+            } else {
+                $('#flat_no').empty();
+                $('#flat_no').append('<option value="" selected>Select Flat No</option>');
+            }
+        });
+    });
+
     function calculateTotal() {
     let total = 0;
     const amounts = document.querySelectorAll('.amount-field');
@@ -154,5 +179,4 @@ function removeRow(button) {
     row.remove();
     calculateTotal(); // Recalculate total after removing a row
 }
-
-    </script>
+</script>

@@ -24,14 +24,12 @@ class HomeController extends Controller
     public function login(Request $request)
     {
         $request->validate([
-            'block' => 'required',
-            'flat_no' => 'required',
+            'email' => 'required',
             'password' => 'required',
         ]);
 
         $credentials = [
-            'BlockNumber' => $request->block,
-            'FlatNumber' => $request->flat_no,
+            'OwnerEmail' => $request->email,
             'password' => $request->password,
         ];
 

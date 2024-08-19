@@ -160,28 +160,16 @@
                                     <div class="form-body">
                                         <form class="row g-3" action="{{ route('flat.login') }}" method="POST">
                                             @csrf
-                                            <div class="col-md-6">
-                                                <label for="block" class="form-label">Block</label>
-                                                <select class="form-control" id="block" name="block">
-                                                    <option value="" selected>Select Block</option>
-                                                    @foreach($blocks as $block)
-                                                       <option value="{{ $block->id }}">{{ $block->Block_name }}</option>
-                                                    @endforeach
-                                                </select>
-                                                @error('block')
-                                                <div class="text-danger">{{ $message }}</div>
-                                                @enderror
+
+                                            <div class="col-md-12">
+                                                <label for="user_email" class="form-label">email</label>
+                                                <div class="input-group" id="show_hide_email_user">
+                                                    <input type="email" class="form-control border-end-0" name="email" id="user_Email" placeholder="Enter email">
+                                                    <a href="javascript:;" class="input-group-text bg-transparent"><i class='bx bx-hide'></i></a>
+                                                </div>
                                             </div>
-                                            
-                                            <div class="col-md-6">
-                                                <label for="flat_no" class="form-label">Flat No</label>
-                                                <select class="form-control" id="flat_no" name="flat_no">
-                                                    <option value="" selected>Select Flat No</option>
-                                                </select>
-                                                @error('flat_no')
-                                                <div class="text-danger">{{ $message }}</div>
-                                                @enderror
-                                            </div>
+                                          
+                                   
                                           
                                             <div class="col-md-12">
                                                 <label for="user_password" class="form-label">Password</label>

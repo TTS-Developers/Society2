@@ -90,11 +90,13 @@ Route::controller(InvoiceController::class)->group(function(){
     Route::get('invoice/{id}',  'showInvoice')->name('invoice.show');
     Route::get('/additional/invoice/create','AdditionalInvoice')->name('additional.invoive');
     Route::POST('additional/create', 'AdditionalStore')->name('addi_invoice.store');
+    Route::get('/additional/invoice/{id}', 'AdditionalInvoiceshow')->name('additional_invoice.show');
     Route::get('/get-flats/{blockId}',  'getFlats');
 
 });
 
-
+ 
+// User Routes
 
 Route::controller(MainController::class)->group(function(){
     Route::get('user/dashboard', 'index')->name('user.dashboard');
@@ -103,7 +105,10 @@ Route::controller(MainController::class)->group(function(){
 
 Route::controller(UserInvoiceController::class)->group(function(){
     Route::get('/user/invoice/view/', 'viewInvoice')->name('view.invoice');
+    Route::get('/user/additional/invoice', 'viewadditionalinvoice')->name('view_additional.invoice');
 });
+
+
 
 
 

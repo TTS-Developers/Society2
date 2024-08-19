@@ -57,7 +57,9 @@
 					</a>
 					<ul>
 						
-						<li> <a href="{{route('view.invoice')}}"><i class='bx bx-radio-circle'></i>View Invoice</a>
+						<li> <a href="{{route('view.invoice')}}"><i class='bx bx-radio-circle'></i>View Monthlay Invoice</a>
+						</li>
+						<li> <a href="{{route('view_additional.invoice')}}"><i class='bx bx-radio-circle'></i>View Additional Invoice</a>
 						</li>
 
 					</ul>

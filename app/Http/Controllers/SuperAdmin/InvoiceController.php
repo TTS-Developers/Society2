@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\SuperAdmin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Sadmin\Additional_Invoice_Detail;
+use App\Models\Sadmin\Additional_Invoice_Master;
 use App\Models\Sadmin\Block;
 use App\Models\Sadmin\FlatArea;
 use App\Models\Sadmin\Inv_type;
@@ -10,6 +12,7 @@ use App\Models\Sadmin\InvDetail;
 use App\Models\Sadmin\InvMaster;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class InvoiceController extends Controller
 {
@@ -41,12 +44,7 @@ class InvoiceController extends Controller
         $inv_type = Inv_type::get();
         return view('superadmin.invoice.create', compact('inv_type'));
     }
-    public function getFlats($blockId)
-    {
-        $flats = FlatArea::where('block', $blockId)->get();
-        return response()->json($flats);
-    }
-
+    
     public function store(Request $request)
     {
         // Validate request data
@@ -94,7 +92,6 @@ class InvoiceController extends Controller
             'inv_detail.updated_at'
         )
         ->get();
-
         $totalAmount = $invoiceDetails->sum('amount');
 
         return view('superadmin.invoice.invoice', [
@@ -122,6 +119,97 @@ class InvoiceController extends Controller
         $inv_type = Inv_type::get();
         return view('superadmin.invoice.additional_invoice', compact('block', 'inv_type'));
     }
+
+    public function AdditionalStore(Request $request)
+    {
+         // Validate request data
+         $validated = $request->validate([
+            'Invoicenumber' => 'required|string',
+            'block' => 'required|string',
+            'flat_no' => 'required|string',
+            'name' => 'required|string',
+            'contact' => 'required|string',
+            'date' => 'required|string',
+            'description' => 'nullable|string',
+            'Invoice_type.*' => 'required|string',
+            'amount.*' => 'required|numeric'
+        ]);
+
+        // Insert invoice master record
+        $additionalinvoiceMaster = Additional_Invoice_Master::create([
+            'invoice_no' => $request->Invoicenumber,
+            'block_id' => $request->block,
+            'flat_id' => $request->flat_no,
+            'owner_name' => $request->name,
+            'contact_no' => $request->contact,
+            'due_date' => $request->date,
+            'total' => $request->total,
+            'description' => $request->description,
+        ]);
+
+        // Insert invoice detail records
+        foreach ($request->Invoice_type as $index => $type) {
+              Additional_Invoice_Detail::create([
+                'addi_invoice_master_id' => $additionalinvoiceMaster->id,
+                'Invoice_type' => $type,
+                'amount' => $request->amount[$index],
+            ]);
+        }
+
+        // return redirect()->route('invoice.show', ['id' => $additionalinvoiceMaster->id])
+        //                  ->with('success', 'Invoice created successfully!');
+        return redirect()->route('additional_invoice.show', ['id' => $additionalinvoiceMaster->id])
+        ->with('success', 'Invoice created successfully!');
+    }
+
+    public function getFlats($blockId)
+    {
+        $flats = FlatArea::where('block', $blockId)->get();
+        return response()->json($flats);
+    }
+
+    public function AdditionalInvoiceshow($id)
+{
+    // Retrieve the invoice master record
+    $additionalinvoiceMaster = DB::table('additional_invoice_master')
+    ->join('block', 'additional_invoice_master.block_id', '=', 'block.id')
+    ->join('flat_area', 'additional_invoice_master.flat_id', '=', 'flat_area.id')
+    ->select(
+        'additional_invoice_master.id',
+        'additional_invoice_master.invoice_no',
+        'additional_invoice_master.owner_name',
+        'additional_invoice_master.contact_no',
+        'additional_invoice_master.due_date',
+        'additional_invoice_master.description',
+        'additional_invoice_master.total',
+        'additional_invoice_master.created_at',
+        'additional_invoice_master.updated_at',
+        'block.Block_name',
+        'flat_area.flat_no'
+    )
+    ->where('additional_invoice_master.id', $id)
+    ->first();
+
+    // Convert due_date to Carbon instance if it's a string
+    $additionalinvoiceMaster->due_date = Carbon::parse($additionalinvoiceMaster->due_date);
+
+    // Retrieve the invoice detail records
+    $additionalinvoiceDetails = $invoiceDetails = DB::table('additional_invoice_detail')
+    ->join('invoice_type', 'additional_invoice_detail.Invoice_type', '=', 'invoice_type.id')
+    ->where('addi_invoice_master_id', $id)
+    ->select(
+        'invoice_type.type_name',
+        'additional_invoice_detail.id',
+        'additional_invoice_detail.addi_invoice_master_id',
+        'additional_invoice_detail.Invoice_type',
+        'additional_invoice_detail.amount',
+        'additional_invoice_detail.created_at',
+        'additional_invoice_detail.updated_at'
+    )
+    ->get();
+     return view('superadmin.invoice.additional_invoice_show', compact('additionalinvoiceMaster', 'additionalinvoiceDetails'));
+}
+
 
 
 
