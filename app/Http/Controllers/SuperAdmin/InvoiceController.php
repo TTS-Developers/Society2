@@ -5,6 +5,7 @@ namespace App\Http\Controllers\SuperAdmin;
 use App\Http\Controllers\Controller;
 use App\Models\Sadmin\Additional_Invoice_Detail;
 use App\Models\Sadmin\Additional_Invoice_Master;
+use App\Models\sadmin\Allotment;
 use App\Models\Sadmin\Block;
 use App\Models\Sadmin\FlatArea;
 use App\Models\Sadmin\Inv_type;
@@ -210,6 +211,17 @@ class InvoiceController extends Controller
      return view('superadmin.invoice.additional_invoice_show', compact('additionalinvoiceMaster', 'additionalinvoiceDetails'));
 }
 
+
+public function getOwner($flatId)
+{
+    $allotment = Allotment::where('FlatNumber', $flatId)->first();
+
+    if ($allotment) {
+        return response()->json(['ownerName' => $allotment->OwnerName, 'contact' => $allotment->OwnerContactNumber]);
+    }
+
+    return response()->json(['ownerName' => null, 'contact' => null]);
+}
 
 
 
