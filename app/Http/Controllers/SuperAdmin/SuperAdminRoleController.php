@@ -38,6 +38,15 @@ class SuperAdminRoleController extends Controller
            'email' => $request->email,
            'password' => Hash::make($request->password),
            'phone' => $request->phone,
+           'block' => $request->block,
+           'invoice_type' => $request->invoice_type,
+           'flat_area' => $request->flat_area,
+           'flats' => $request->flats,
+           'visitors' => $request->visitors,
+           'invoice' => $request->invoice,
+           'allotment' => $request->allotment,
+           'complaint' => $request->complaint,
+           'adminuserregister' => $request->adminuserregister,
            'type' => 2,
            'profile_photo_path' => $fileName,
            'created_at' => Carbon::now()
@@ -72,6 +81,13 @@ class SuperAdminRoleController extends Controller
                 'name' => $request->name,
                 'email' => $request->email,
                 'phone' => $request->phone,
+                'invoice_type' => $request->invoice_type,
+                'flats' => $request->flats,
+                'visitors' => $request->visitors,
+                'invoice' => $request->invoice,
+                'allotment' => $request->allotment,
+                'complaint' => $request->complaint,
+                'adminuserregister' => $request->adminuserregister,
                 'type' => 2,
                 'profile_photo_path' => $fileName,
                 'updated_at' => Carbon::now()
@@ -89,10 +105,17 @@ class SuperAdminRoleController extends Controller
                 'name' => $request->name,
                 'email' => $request->email,
                 'phone' => $request->phone,
+                'invoice_type' => $request->invoice_type,
+                'flats' => $request->flats,
+                'visitors' => $request->visitors,
+                'invoice' => $request->invoice,
+                'allotment' => $request->allotment,
+                'complaint' => $request->complaint,
+                'adminuserregister' => $request->adminuserregister,
                 'type' => 2,
-                'profile_photo_path' => $request->profile_photo_path,
                 'updated_at' => Carbon::now()
             ]);
+//            dd($request->invoice_type);
 
             $notification = array(
                 'message' => 'SuperAdmin Update Member Successfully',

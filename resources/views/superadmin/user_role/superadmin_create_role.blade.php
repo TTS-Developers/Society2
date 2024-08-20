@@ -86,111 +86,66 @@
 
             </div><!-- end cold md 6 -->
         </div><!-- end row 	 -->
-
-
-
         <hr>
 
+        <div class="row">
 
+            <div class="col-md-4">
+                <div class="form-group">
 
-{{--        <div class="row">--}}
+                    <div class="controls">
+                        <fieldset>
+                            <input type="checkbox" id="checkbox_2" name="block" value="1">
+                            <label for="checkbox_2">Block</label>
+                        </fieldset>
+                        <fieldset>
+                            <input type="checkbox" id="checkbox_3" name="invoice_type" value="1">
+                            <label for="checkbox_3">Invoice Type</label>
+                        </fieldset>
 
-{{--            <div class="col-md-4">--}}
-{{--                <div class="form-group">--}}
+                        <fieldset>
+                            <input type="checkbox" id="checkbox_4" name="flat_area" value="1">
+                            <label for="checkbox_4">Flat Area</label>
+                        </fieldset>
 
-{{--                    <div class="controls">--}}
-{{--                        <fieldset>--}}
-{{--                            <input type="checkbox" id="checkbox_2" name="brand" value="1">--}}
-{{--                            <label for="checkbox_2">Brand</label>--}}
-{{--                        </fieldset>--}}
-{{--                        <fieldset>--}}
-{{--                            <input type="checkbox" id="checkbox_3" name="category" value="1">--}}
-{{--                            <label for="checkbox_3">Category</label>--}}
-{{--                        </fieldset>--}}
+                        <fieldset>
+                            <input type="checkbox" id="checkbox_5" name="flats" value="1">
+                            <label for="checkbox_5">Flats</label>
+                        </fieldset>
 
-{{--                        <fieldset>--}}
-{{--                            <input type="checkbox" id="checkbox_4" name="product" value="1">--}}
-{{--                            <label for="checkbox_4">Product</label>--}}
-{{--                        </fieldset>--}}
+                        <fieldset>
+                            <input type="checkbox" id="checkbox_6" name="visitors" value="1">
+                            <label for="checkbox_6">Visitors</label>
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
 
-{{--                        <fieldset>--}}
-{{--                            <input type="checkbox" id="checkbox_5" name="slider" value="1">--}}
-{{--                            <label for="checkbox_5">Slider</label>--}}
-{{--                        </fieldset>--}}
+                    <div class="controls">
+                        <fieldset>
+                            <input type="checkbox" id="checkbox_2" name="invoice" value="1">
+                            <label for="checkbox_2">Invoice</label>
+                        </fieldset>
+                        <fieldset>
+                            <input type="checkbox" id="checkbox_3" name="allotment" value="1">
+                            <label for="checkbox_3">Allotment</label>
+                        </fieldset>
 
-{{--                        <fieldset>--}}
-{{--                            <input type="checkbox" id="checkbox_6" name="coupons" value="1">--}}
-{{--                            <label for="checkbox_6">Coupons</label>--}}
-{{--                        </fieldset>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
+                        <fieldset>
+                            <input type="checkbox" id="checkbox_4" name="complaint" value="1">
+                            <label for="checkbox_4">Complaints</label>
+                        </fieldset>
 
-
-
-{{--            <div class="col-md-4">--}}
-{{--                <div class="form-group">--}}
-
-{{--                    <div class="controls">--}}
-{{--                        <fieldset>--}}
-{{--                            <input type="checkbox" id="checkbox_7" name="shipping" value="1">--}}
-{{--                            <label for="checkbox_7">Shipping</label>--}}
-{{--                        </fieldset>--}}
-{{--                        <fieldset>--}}
-{{--                            <input type="checkbox" id="checkbox_8" name="blog" value="1">--}}
-{{--                            <label for="checkbox_8">Blog</label>--}}
-{{--                        </fieldset>--}}
-
-{{--                        <fieldset>--}}
-{{--                            <input type="checkbox" id="checkbox_9" name="setting" value="1">--}}
-{{--                            <label for="checkbox_9">Setting</label>--}}
-{{--                        </fieldset>--}}
-
-
-{{--                        <fieldset>--}}
-{{--                            <input type="checkbox" id="checkbox_10" name="returnorder" value="1">--}}
-{{--                            <label for="checkbox_10">Return Order</label>--}}
-{{--                        </fieldset>--}}
-
-{{--                        <fieldset>--}}
-{{--                            <input type="checkbox" id="checkbox_11" name="review" value="1">--}}
-{{--                            <label for="checkbox_11">	Review</label>--}}
-{{--                        </fieldset>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-
-{{--            <div class="col-md-4">--}}
-{{--                <div class="form-group">--}}
-
-{{--                    <div class="controls">--}}
-{{--                        <fieldset>--}}
-{{--                            <input type="checkbox" id="checkbox_12" name="orders" value="1">--}}
-{{--                            <label for="checkbox_12">Orders</label>--}}
-{{--                        </fieldset>--}}
-{{--                        <fieldset>--}}
-{{--                            <input type="checkbox" id="checkbox_13" name="stock" value="1">--}}
-{{--                            <label for="checkbox_13">Stock</label>--}}
-{{--                        </fieldset>--}}
-
-{{--                        <fieldset>--}}
-{{--                            <input type="checkbox" id="checkbox_14" name="reports" value="1">--}}
-{{--                            <label for="checkbox_14">Reports</label>--}}
-{{--                        </fieldset>--}}
-
-{{--                        <fieldset>--}}
-{{--                            <input type="checkbox" id="checkbox_15" name="alluser" value="1">--}}
-{{--                            <label for="checkbox_15">Alluser</label>--}}
-{{--                        </fieldset>--}}
-
-{{--                        <fieldset>--}}
-{{--                            <input type="checkbox" id="checkbox_16" name="adminuserrole" value="1">--}}
-{{--                            <label for="checkbox_16">Adminuserrole</label>--}}
-{{--                        </fieldset>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
+                        <fieldset>
+                            <input type="checkbox" id="checkbox_5" name="adminuserregister" value="1">
+                            <label for="checkbox_5">Admin User Register</label>
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="text-xs-right">
             <input type="submit" class="btn btn-rounded btn-primary mb-5" value="Add Admin User">
         </div>

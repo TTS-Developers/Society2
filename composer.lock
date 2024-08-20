@@ -4,11 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-<<<<<<< HEAD
     "content-hash": "26208a47109c0e3d04f6cda4074be7be",
-=======
-    "content-hash": "a349383c5500fe749471b3bfb83df832",
->>>>>>> 9d37eebfb604fa5f2bc30170b0d0aa526dddb028
     "packages": [
         {
             "name": "brick/math",
@@ -511,7 +507,6 @@
             "time": "2023-10-06T06:47:41+00:00"
         },
         {
-<<<<<<< HEAD
             "name": "fakerphp/faker",
             "version": "v1.23.1",
             "source": {
@@ -575,8 +570,6 @@
             "time": "2024-01-02T13:46:09+00:00"
         },
         {
-=======
->>>>>>> 9d37eebfb604fa5f2bc30170b0d0aa526dddb028
             "name": "fruitcake/php-cors",
             "version": "v1.3.0",
             "source": {
@@ -1121,7 +1114,6 @@
             "time": "2023-12-03T19:50:20+00:00"
         },
         {
-<<<<<<< HEAD
             "name": "intervention/gif",
             "version": "4.1.0",
             "source": {
@@ -1258,8 +1250,6 @@
             "time": "2024-07-05T13:35:01+00:00"
         },
         {
-=======
->>>>>>> 9d37eebfb604fa5f2bc30170b0d0aa526dddb028
             "name": "laravel/framework",
             "version": "v10.48.19",
             "source": {
@@ -5888,8 +5878,6 @@
     ],
     "packages-dev": [
         {
-<<<<<<< HEAD
-=======
             "name": "fakerphp/faker",
             "version": "v1.23.1",
             "source": {
@@ -5953,7 +5941,6 @@
             "time": "2024-01-02T13:46:09+00:00"
         },
         {
->>>>>>> 9d37eebfb604fa5f2bc30170b0d0aa526dddb028
             "name": "filp/whoops",
             "version": "2.15.4",
             "source": {
@@ -8473,9 +8460,5 @@
         "php": "^8.1"
     },
     "platform-dev": [],
-<<<<<<< HEAD
     "plugin-api-version": "2.6.0"
-=======
-    "plugin-api-version": "2.3.0"
->>>>>>> 9d37eebfb604fa5f2bc30170b0d0aa526dddb028
 }

@@ -3,7 +3,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SuperAdmin\FlatController;
+use App\Http\Controllers\SuperAdmin\InvoiceController;
 use App\Http\Controllers\SuperAdmin\BlockController;
 use App\Http\Controllers\SuperAdmin\FlatAreaController;
 use App\Http\Controllers\SuperAdmin\AllotmentsController;
@@ -25,7 +27,11 @@ use App\Http\Controllers\User\UserInvoiceController;
 Route::get('/', function () {
     return view('welcome');
 });
-
+Route::group(['prefix'=> 'admin', 'middleware'=>['admin:admin']], function(){
+    Route::get('/', [HomeController::class, 'index']);
+    Route::get('/get-flats/{blockId}', [HomeController::class, 'getFlats']);
+    Route::post('flat-login', [HomeController::class, 'login'])->name('flat.login');
+});
 
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/get-flats/{blockId}', [HomeController::class, 'getFlats']);
@@ -50,11 +56,17 @@ Route::controller(SuperAdminRoleController::class)->group(function (){
     Route::get('/delete/{id}', 'DeleteSuperAdminRole')->name('delete.superadmin');
 
 });
-Route::controller(BlockController::class)->group(function(){
-    Route::get('/superadmin/block', 'index')->name('block.index');
-    Route::POST('/block/create', 'store')->name('block.store');
-    Route::put('/block/update',  'update')->name('block.update');
-    Route::delete('/block/delete/{id}', 'destroy')->name('block.delete');
+//Route::controller(BlockController::class)->group(function(){
+//    Route::get('/superadmin/block', 'index')->name('block.index');
+//    Route::POST('/block/create', 'store')->name('block.store');
+//    Route::put('/block/update',  'update')->name('block.update');
+//    Route::delete('/block/delete/{id}', 'destroy')->name('block.delete');
+//});
+Route::prefix('block')->group(function(){
+Route::get('/superadmin/block', [BlockController::class, 'index'])->name('block.index');
+Route::post('/block/create', [BlockController::class, 'store'])->name('block.store');
+Route::put('/block/update', [BlockController::class, 'update'])->name('block.update');
+Route::delete('/block/delete/{id}', [BlockController::class, 'destroy'])->name('block.delete');
 });
 
 Route::controller(Invoice_typeController::class)->group(function(){

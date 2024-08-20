@@ -21,7 +21,7 @@
                                     <th>Image</th>
                                     <th>Name</th>
                                     <th>Email</th>
-                                    {{--                                    <th>Access</th>--}}
+                                    <th>Access</th>
                                     <th>Action</th>
 
                                 </tr>
@@ -30,72 +30,47 @@
                                 @foreach($user as $item)
                                     <tr>
                                         {{-- <td> <img src="{{ asset($item->profile_photo_path) }}">  </td>--}}
-                                        <td><img src="{{ asset('upload/admin_images/' . $item->profile_photo_path) }}"
-                                                 style="width: 50px; height: 50px;"></td>
+                                        <td><img src="{{ asset('upload/admin_images/' . $item->profile_photo_path) }}"style="width: 50px; height: 50px;"></td>
                                         <td>{{ $item->name }}  </td>
                                         <td>{{ $item->email  }}  </td>
-                                        {{-- <td width="40%">--}}
-                                        {{-- @if($item->brand == 1)--}}
-                                        {{-- <span class="badge badge-primary">Brand</span>--}}
-                                        {{-- @else--}}
-                                        {{-- @endif--}}
-                                        {{-- @if($item->category == 1)--}}
-                                        {{-- <span class="badge badge-success">Category</span>--}}
-                                        {{-- @else--}}
-                                        {{--@endif--}}
-                                        {{--@if($item->product == 1)--}}
-                                        {{--<span class="badge badge-danger">Product</span>--}}
-                                        {{--@else--}}
-                                        {{--@endif--}}
-                                        {{--@if($item->slider == 1)--}}
-                                        {{--<span class="badge badge-warning">Slider</span>--}}
-                                        {{--@else--}}
-                                        {{--@endif--}}
-                                        {{--@if($item->coupons == 1)--}}
-                                        {{--<span class="badge badge-secondary">Coupons</span>--}}
-                                        {{--@else--}}
-                                        {{--@endif--}}
-                                        {{--@if($item->shipping == 1)--}}
-                                        {{--<span class="badge badge-info">Shipping</span>--}}
-                                        {{--@else--}}
-                                        {{--@endif--}}
-                                        {{--@if($item->blog == 1)--}}
-                                        {{--<span class="badge badge-light">Blog</span>--}}
-                                        {{--@else--}}
-                                        {{--@endif--}}
-                                        {{--@if($item->setting == 1)--}}
-                                        {{--<span class="badge badge-dark">Setting</span>--}}
-                                        {{--@else--}}
-                                        {{--@endif--}}
-                                        {{--@if($item->returnorder == 1)--}}
-                                        {{--<span class="badge badge-danger-light">Return Order</span>--}}
-                                        {{--@else--}}
-                                        {{--@endif--}}
-                                        {{--@if($item->review == 1)--}}
-                                        {{--<span class="badge badge-info-light">Review</span>--}}
-                                        {{--@else--}}
-                                        {{--@endif--}}
-                                        {{--@if($item->orders == 1)--}}
-                                        {{--<span class="badge badge-primary-light">Orders</span>--}}
-                                        {{--@else--}}
-                                        {{--@endif--}}
-                                        {{--@if($item->stock == 1)--}}
-                                        {{--<span class="badge badge-">Stock</span>--}}
-                                        {{--@else--}}
-                                        {{--@endif--}}
-                                        {{--@if($item->reports == 1)--}}
-                                        {{--<span class="badge badge-primary">Repoorts</span>--}}
-                                        {{--@else--}}
-                                        {{--@endif--}}
-                                        {{--@if($item->alluser == 1)--}}
-                                        {{--<span class="badge badge-primary">All User</span>--}}
-                                        {{--@else--}}
-                                        {{--@endif--}}
-                                        {{--@if($item->adminuserrole == 1)--}}
-                                        {{--<span class="badge badge-primary">Admin UserRole</span>--}}
-                                        {{--@else--}}
-                                        {{--@endif--}}
-                                        {{--</td>--}}
+                                         <td width="40%">
+                                         @if($item->block == 1)
+                                         <span class="badge badge-pill badge-primary">Block</span>
+                                         @else
+                                         @endif
+                                         @if($item->invoice_type == 1)
+                                         <span class="badge badge-success">Invoice Type</span>
+                                         @else
+                                        @endif
+                                        @if($item->flat_area == 1)
+                                        <span class="badge badge-danger">Flat Area</span>
+                                        @else
+                                        @endif
+                                        @if($item->flats == 1)
+                                        <span class="badge badge-warning">Flats</span>
+                                        @else
+                                        @endif
+                                        @if($item->visitors == 1)
+                                        <span class="badge badge-secondary">Visitors</span>
+                                        @else
+                                        @endif
+                                        @if($item->invoice == 1)
+                                        <span class="badge badge-info">Invoice</span>
+                                        @else
+                                        @endif
+                                        @if($item->allotment == 1)
+                                        <span class="badge badge-light">Allotment</span>
+                                        @else
+                                        @endif
+                                        @if($item->complaint == 1)
+                                        <span class="badge badge-dark">Complaints</span>
+                                        @else
+                                        @endif
+                                        @if($item->adminuserregister == 1)
+                                        <span class="badge badge-primary">Admin User Register</span>
+                                        @else
+                                        @endif
+                                        </td>
                                         <td width="25%">
                                             <a href="{{ route('edit.superadmin',$item->id) }}" class="btn btn-info"
                                                title="Edit Data"><i class="fa fa-pencil"></i> </a>

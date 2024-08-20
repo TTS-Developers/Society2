@@ -27,6 +27,9 @@
 </head>
 
 <body class="bg-theme bg-theme2">
+@php
+   $prefix = Request::route()->getPrefix();
+@endphp
 	<!--wrapper-->
 	<div class="wrapper">
 		<!--sidebar wrapper -->
@@ -49,7 +52,20 @@
 						<div class="menu-title">Dashboard</div>
 					</a>
 				</li>
-				<li>
+				@php
+				  $block = (auth()->user()->block == 1);
+				  $invoiceType = (auth()->user()->invoice_type == 1);
+				  $flatArea = (auth()->user()->flat_area == 1);
+				  $flats = (auth()->user()->flats == 1);
+				  $visitor = (auth()->user()->visitors == 1);
+				  $invoice = (auth()->user()->invoice == 1);
+				  $allotment = (auth()->user()->allotment == 1);
+				  $complaint = (auth()->user()->complaint == 1);
+				  $adminuserrole = (auth()->user()->adminuserregister == 1);
+			    @endphp
+
+				@if($block == true)
+				<li {{($prefix  == '/block')? 'active': ''}}>
 					<a href="javascript:;" class="has-arrow">
 						<div class="parent-icon"><i class="bx bx-category"></i>
 						</div>
@@ -62,8 +78,11 @@
 
 					</ul>
 				</li>
+				@else
+				@endif
 
-					<li>
+				@if($invoiceType == true)
+					<li {{($prefix  == '/invoice_type')? 'active': ''}}>
 					<a href="javascript:;" class="has-arrow">
 						<div class="parent-icon"><i class="bx bx-category"></i>
 						</div>
@@ -76,9 +95,11 @@
 
 					</ul>
 				</li>
+				@else
+				@endif
 
-
-				<li>
+				@if($flatArea == true)
+				<li {{($prefix  == '/flat_area')? 'active': ''}}>
 					<a href="javascript:;" class="has-arrow">
 						<div class="parent-icon"><i class="bx bx-category"></i>
 						</div>
@@ -92,8 +113,11 @@
 
 					</ul>
 				</li>
+				@else
+				@endif
 
-                <li>
+				@if($flats == true)
+                <li {{($prefix  == '/flat')? 'active': ''}}>
 					<a href="javascript:;" class="has-arrow">
 						<div class="parent-icon"><i class="bx bx-category"></i>
 						</div>
@@ -107,9 +131,11 @@
 
 					</ul>
 				</li>
+                @else
+				@endif
 
-
-                <li>
+				@if($visitor == true)
+                <li {{($prefix  == '/visitor')? 'active': ''}}>
 					<a href="javascript:;" class="has-arrow">
 						<div class="parent-icon"><i class="bx bx-category"></i>
 						</div>
@@ -120,7 +146,11 @@
 						</li>
 					</ul>
 				</li>
-				<li>
+				@else
+				@endif
+
+				@if($invoice == true)
+				<li {{($prefix  == '/invoice')? 'active': ''}}>
 					<a href="javascript:;" class="has-arrow">
 						<div class="parent-icon"><i class="bx bx-category"></i>
 						</div>
@@ -136,8 +166,11 @@
 						</li>
 					</ul>
 				</li>
+				@else
+				@endif
 
-                <li>
+				@if($allotment == true)
+				<li {{($prefix  == '/allotment')? 'active': ''}}>
 					<a href="javascript:;" class="has-arrow">
 						<div class="parent-icon"><i class="bx bx-category"></i>
 						</div>
@@ -150,8 +183,11 @@
 						</li>
 					</ul>
 				</li>
+				@else
+				@endif
 
-                <li>
+				@if($complaint == true)
+                <li {{($prefix  == '/complaint')? 'active': ''}}>
 					<a href="javascript:;" class="has-arrow">
 						<div class="parent-icon"><i class="bx bx-category"></i>
 						</div>
@@ -168,78 +204,11 @@
 						</li>
 					</ul>
 				</li>
+				@else
+				@endif
 
-                <li>
-					<a href="javascript:;" class="has-arrow">
-						<div class="parent-icon"><i class="bx bx-category"></i>
-						</div>
-						<div class="menu-title">Bills</div>
-					</a>
-					<ul>
-						<li> <a href="#"><i class='bx bx-radio-circle'></i>Add Bill</a>
-						</li>
-						<li> <a href="#"><i class='bx bx-radio-circle'></i>Manage Bill</a>
-						</li>
-					</ul>
-				</li>
-
-                <li>
-					<a href="javascript:;" class="has-arrow">
-						<div class="parent-icon"><i class="bx bx-category"></i>
-						</div>
-						<div class="menu-title">Security</div>
-					</a>
-					<ul>
-						<li> <a href="#"><i class='bx bx-radio-circle'></i>Add Security</a>
-						</li>
-						<li> <a href="#"><i class='bx bx-radio-circle'></i>Manage Security</a>
-						</li>
-					</ul>
-				</li>
-
-                <li>
-					<a href="javascript:;" class="has-arrow">
-						<div class="parent-icon"><i class="bx bx-category"></i>
-						</div>
-						<div class="menu-title">ShoutBox</div>
-					</a>
-					<ul>
-						<li> <a href="#"><i class='bx bx-radio-circle'></i>Announcement</a>
-						</li>
-
-					</ul>
-				</li>
-
-                <li>
-					<a href="javascript:;" class="has-arrow">
-						<div class="parent-icon"><i class="bx bx-category"></i>
-						</div>
-						<div class="menu-title">Report</div>
-					</a>
-					<ul>
-						<li> <a href="#"><i class='bx bx-radio-circle'></i>Report Flats</a>
-						</li>
-						<li> <a href="#"><i class='bx bx-radio-circle'></i>Report Visitors</a>
-						</li>
-					</ul>
-				</li>
-
-                <li>
-					<a href="javascript:;" class="has-arrow">
-						<div class="parent-icon"><i class="bx bx-category"></i>
-						</div>
-						<div class="menu-title">Maintenance Report</div>
-					</a>
-					<ul>
-						<li> <a href="app-emailbox.html"><i class='bx bx-radio-circle'></i>All Maintenance Report</a>
-						</li>
-						<li> <a href="app-chat-box.html"><i class='bx bx-radio-circle'></i>Manage Maintenance</a>
-						</li>
-                        <li> <a href="app-chat-box.html"><i class='bx bx-radio-circle'></i>Detail Maintenance</a>
-						</li>
-					</ul>
-				</li>
-				<li>
+				@if($adminuserrole == true)
+				<li {{($prefix  == '/adminuserregister')? 'active': ''}}>
 					<a href="javascript:;" class="has-arrow">
 						<div class="parent-icon"><i class="bx bx-category"></i>
 						</div>
@@ -247,17 +216,11 @@
 					</a>
 					<ul>
 						<li> <a href="{{route('all.superadmin.user')}}"><i class='bx bx-radio-circle'></i>Admin User Register</a>
-                <li>
-					<a href="javascript:;" class="has-arrow">
-						<div class="parent-icon"><i class="bx bx-category"></i>
-						</div>
-						<div class="menu-title">User Register</div>
-					</a>
-					<ul>
-						<li> <a href="app-emailbox.html"><i class='bx bx-radio-circle'></i>User Register</a>
 						</li>
 					</ul>
 				</li>
+				@else
+				@endif
 			</ul>
 			<!--end navigation-->
 		</div>

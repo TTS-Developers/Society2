@@ -168,7 +168,6 @@ Dashboard
                         <div class="d-flex align-items-center">
                             <div>
                                 <p class="mb-0">10 - 20 Days</p>
-                                <h4 class="my-1">Rs: 1000,000</h4>
                                 <h4 class="my-1">Rs: 1000,00</h4>
                                 <!-- <p class="mb-0 font-13"><i class='bx bxs-up-arrow align-middle'></i>$24 from last week</p> -->
                             </div>
@@ -199,7 +198,6 @@ Dashboard
                         <div class="d-flex align-items-center">
                             <div>
                                 <p class="mb-0">30 - 60 Days</p>
-                                <h4 class="my-1">Rs: 2000,000</h4>
                                 <h4 class="my-1">Rs: 2000,00</h4>
                                 <!-- <p class="mb-0 font-13"><i class='bx bxs-down-arrow align-middle'></i>12.2% from last week</p> -->
                             </div>
@@ -567,133 +565,6 @@ Dashboard
 
         <!--end row-->
         <div class="row">
-        <div class="col-12 col-xl-8 d-flex">
-            
-        </div>
-        <div class="col-12  d-flex gap-2 mb-3">
-            <div class="col-xl-4">
-                <div class="card radius-10 overflow-hidden">
-                    <div class="card-body">
-                        <div class="d-flex align-items-center">
-                            <div class="">
-                                <p class="mb-1">Monthly Maintenance</p>
-                                <h4 class="mb-0">75%</h4>
-                            </div>
-                            <div class="ms-auto">
-                                <p class="mb-0 font-13 text-white">+12.34 Increase</p>
-                                <p class="mb-0 font-13">From Last Week</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="chart12"></div>
-                </div>
-                <div class="card radius-10 overflow-hidden">
-                    <div class="card-body">
-                        <div class="d-flex align-items-center">
-                            <div class="">
-                                <p class="mb-1">Electricity for Servent Quorter </p>
-                                <h4 class="mb-0">3%</h4>
-                            </div>
-                            <div class="ms-auto">
-                                <p class="mb-0 font-13 text-white">+21.34 Increase</p>
-                                <p class="mb-0 font-13">From Last Week</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="chart13"></div>
-                </div>
-                <div class="card radius-10 overflow-hidden">
-                    <div class="card-body">
-                        <div class="d-flex align-items-center">
-                            <div class="">
-                                <p class="mb-1">Water Tanker</p>
-                                <h4 class="mb-0">5%</h4>
-                            </div>
-                            <div class="ms-auto">
-                                <p class="mb-0 font-13 text-white">+18.42 Increase</p>
-                                <p class="mb-0 font-13">From Last Week</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="chart14"></div>
-                </div>
-                <div class="card radius-10 overflow-hidden">
-                    <div class="card-body">
-                        <div class="d-flex align-items-center">
-                            <div class="">
-                                <p class="mb-1">Comunity Hall Booking</p>
-                                <h4 class="mb-0">8%</h4>
-                            </div>
-                            <div class="ms-auto">
-                                <p class="mb-0 font-13 text-white">+18.42 Increase</p>
-                                <p class="mb-0 font-13">From Last Week</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="chart11"></div>
-                </div>
-                <div class="card radius-10 overflow-hidden">
-                    <div class="card-body">
-                        <div class="d-flex align-items-center">
-                            <div class="">
-                                <p class="mb-1">Property Damage Challan</p>
-                                <h4 class="mb-0">7%</h4>
-                            </div>
-                            <div class="ms-auto">
-                                <p class="mb-0 font-13 text-white">+18.42 Increase</p>
-                                <p class="mb-0 font-13">From Last Week</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="chart10"></div>
-                </div>
-            </div>
-
-            <div class="col-xl-4">
-                <div class="card radius-10 overflow-hidden">
-                    <div class="card-body">
-                        <div class="d-flex align-items-center">
-                            <div class="">
-                                <p class="mb-1">Gym / Swimming pool</p>
-                                <h4 class="mb-0">2%</h4>
-                            </div>
-                            <div class="ms-auto">
-                                <p class="mb-0 font-13 text-white">+18.42 Increase</p>
-                                <p class="mb-0 font-13">From Last Week</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="chart9"></div>
-                </div>
-            </div>
-        </div>
-<!--end row-->
-
-            <div class="col-xl-4">
-                <div class="card radius-10 overflow-hidden">
-                    <div class="card-body">
-                        <div class="d-flex align-items-center">
-                            <div class="">
-                                <p class="mb-1">Comunity Hall Booking</p>
-                                <h4 class="mb-0">8%</h4>
-                            </div>
-                            <div class="ms-auto">
-                                <p class="mb-0 font-13 text-white">+18.42 Increase</p>
-                                <p class="mb-0 font-13">From Last Week</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="chart11"></div>
-                </div>
-            </div>
-            
-        </div>
-         
-    
-
-    </div>
-
-    <div class="row">
         <div class="col-12  d-flex gap-2 mb-2">
             <div class="col-xl-4">
                 <div class="card radius-10 overflow-hidden">
@@ -748,9 +619,72 @@ Dashboard
                     <div id="chart14"></div>
                 </div>
             </div>
+
+        </div>
+
+    </div>
+        <div class="row">
+{{--        <div class="col-12 col-xl-8 d-flex">--}}
+{{--            --}}
+{{--        </div>--}}
+        <div class="col-12  d-flex gap-2 mb-3">
+            <div class="col-xl-4">
+                <div class="card radius-10 overflow-hidden">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center">
+                            <div class="">
+                                <p class="mb-1">Comunity Hall Booking</p>
+                                <h4 class="mb-0">8%</h4>
+                            </div>
+                            <div class="ms-auto">
+                                <p class="mb-0 font-13 text-white">+18.42 Increase</p>
+                                <p class="mb-0 font-13">From Last Week</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="chart11"></div>
+                </div>
+            </div>
+            <div class="col-xl-4">
+                <div class="card radius-10 overflow-hidden">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center">
+                            <div class="">
+                                <p class="mb-1">Property Damage Challan</p>
+                                <h4 class="mb-0">7%</h4>
+                            </div>
+                            <div class="ms-auto">
+                                <p class="mb-0 font-13 text-white">+18.42 Increase</p>
+                                <p class="mb-0 font-13">From Last Week</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="chart10"></div>
+                </div>
+            </div>
+            <div class="col-xl-4">
+                <div class="card radius-10 overflow-hidden">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center">
+                            <div class="">
+                                <p class="mb-1">Gym / Swimming pool</p>
+                                <h4 class="mb-0">2%</h4>
+                            </div>
+                            <div class="ms-auto">
+                                <p class="mb-0 font-13 text-white">+18.42 Increase</p>
+                                <p class="mb-0 font-13">From Last Week</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="chart9"></div>
+                </div>
+            </div>
+        </div>
+<!--end row-->
             
         </div>
 
     </div>
+
 </div>
 @endsection
