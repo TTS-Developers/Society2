@@ -117,6 +117,7 @@ Route::controller(InvoiceController::class)->group(function(){
     Route::POST('additional/create', 'AdditionalStore')->name('addi_invoice.store');
     Route::get('/additional/invoice/{id}', 'AdditionalInvoiceshow')->name('additional_invoice.show');
     Route::get('/get-flats/{blockId}',  'getFlats');
+    Route::get('/get-owner/{flatId}', 'getOwner');
 
 });
 

@@ -41,11 +41,11 @@
 
                             <div class="col-md-6">
                                 <label for="name" class="form-label">Owner Name</label>
-                                <input type="text" class="form-control" id="name" name="name" placeholder="Owner Name">
+                                <input type="text" class="form-control" id="name" name="name" placeholder="Owner Name" readonly>
                             </div>
                             <div class="col-md-6">
                                 <label for="contact" class="form-label">Owner Contact Number</label>
-                                <input type="text" class="form-control" id="contact" name="contact" placeholder="Owner Contact Number">
+                                <input type="text" class="form-control" id="contact" name="contact" placeholder="Owner Contact Number" readonly>
                             </div>
 
                             <div class="col-md-6">
@@ -137,6 +137,34 @@ $(document).ready(function() {
                 $('#flat_no').append('<option value="" selected>Select Flat No</option>');
             }
         });
+    });
+
+    $('#flat_no').change(function() {
+        var flatId = $(this).val();
+        if (flatId) {
+            $.ajax({
+                url: '/get-owner/' + flatId,
+                type: 'GET',
+                dataType: 'json',
+                success: function(data) {
+                    if (data.ownerName) {
+                        $('#name').val(data.ownerName);
+                        $('#contact').val(data.contact);
+                    } else {
+                        $('#name').val('');
+                        $('#contact').val('');
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Owner not found',
+                            text: 'No owner found for the selected flat.',
+                        });
+                    }
+                }
+            });
+        } else {
+            $('#name').val('');
+            $('#contact').val('');
+        }
     });
 
     function calculateTotal() {

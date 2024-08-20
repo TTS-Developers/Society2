@@ -30,6 +30,7 @@
     @foreach($additional_invoice as $row)
         <tr>
             <td>{{$count ++}}</td>
+            <td>{{$row->invoice_no}}</td>
             <td>{{$row->block_id}}</td>
             <td>{{$row->flat_id}}</td>
           
@@ -38,7 +39,7 @@
             <td>{{ \Carbon\Carbon::parse($row->due_date)->format('d-m-Y')}}</td>
             <td>{{$row->description}}</td>
             <td>
-                <a href="#" class="edit-btn" title="Edit">
+                <a href="{{route('additional_invoice.show', $row->id)}}" class="edit-btn" title="Edit">
                     <i class="lni lni-eye"></i>
                 </a>
             </td>

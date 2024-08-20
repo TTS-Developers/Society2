@@ -21,31 +21,21 @@ class UserInvoiceController extends Controller
 
     public function viewadditionalinvoice()
     {
-       
-
-
-
         if (Auth::guard('flat_guard')->check()) {
-            $user = Auth::guard('flat_guard')->user();  // Retrieve the authenticated user
-        
-            dd( Auth::guard('flat_guard')->user());  // Debugging to check the email
-        
-            // Fetch the allotment details using the OwnerEmail
-            $allot = Allotment::where('OwnerEmail', $user->OwnerEmail)->get();
-        
+            $user = Auth::guard('flat_guard')->user(); 
+            $allot = Allotment::where('OwnerEmail', $user->OwnerEmail)->first();  
             if ($allot) {
                 $flat = $allot->FlatNumber;
                 $block = $allot->BlockNumber;
-        
-                // Fetch additional invoices based on the flat and block numbers
                 $additional_invoice = Additional_Invoice_Master::where('flat_id', $flat)
                     ->where('block_id', $block)
-                    ->get();
-        
-                // Return the view with the additional invoices
+                    ->get();     
                 return view('user.invoice.additional_invoice', compact('additional_invoice'));
+            } else {
+          
+                return redirect()->back()->with('error', 'No allotment found for the logged-in user.');
+            }
         }
-    
-   }
+        return redirect()->route('login')->with('error', 'Please login to view your invoices.');
     }
 }
