@@ -5,7 +5,6 @@
         <div class="row g-3">
             <div class="col-md-12">
                 <label for="type" class="form-label">Add Invoice Type</label>
-                <label for="type" class="form-label">{{_('Add Invoice Type')}}</label>
                 <input type="text" class="form-control @error('type') is-invalid @enderror" id="Type" name="inv_type" placeholder="Type">
                 @error('type')
                 <div class="invalid-feedback">{{ $message }}</div>

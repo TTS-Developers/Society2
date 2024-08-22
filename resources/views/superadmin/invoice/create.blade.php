@@ -1,7 +1,7 @@
 @extends('superadmin.layout.master')
 
 @section('page-title')
-    {{_('Add Invoice')}}
+    Add Invoice
 @endsection
 
 @section('main-content')

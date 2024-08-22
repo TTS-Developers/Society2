@@ -5,7 +5,7 @@
             <div class="card-body p-5">
                 <div class="card-title d-flex align-items-center">
                     <div><i class="bx bx-category me-1 font-22 text-white"></i></div>
-                    <h5 class="mb-0 text-white">{{_('Add Additional Invoice')}}</h5>
+                    <h5 class="mb-0 text-white">Add Additional Invoice</h5>
                 </div>
                 <hr>
                 <form id="dynamic-form-container" action="{{ route('addi_invoice.store') }}" method="POST">

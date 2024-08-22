@@ -1,6 +1,5 @@
 @extends('superadmin.layout.master')
-@section('page-title')
-    {{_('Invoice')}}
+@section('page-title')Invoice
 @endsection
 @section('main-content')
 <div class="page-wrapper">

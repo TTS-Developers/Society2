@@ -7,7 +7,7 @@
                 <tr>
                     <th>S.No</th>
                     <th>Invoice Number</th>
-                    <th>Description/th>
+                    <th>Description</th>
                     <th>Due Date</th>
                     <th>Action</th>
                   
@@ -23,7 +23,7 @@
                    <tr>
                        <td>{{$count++}}</td>
                        <td>{{$row->Invoicenumber}}</td>
-                       <td>{{$row->}}</td>
+{{--                       <td>{{$row->}}</td>--}}
                        <td>Ali Muammad</td>
                        <td>03312187411</td>
                        <td>200000</td>

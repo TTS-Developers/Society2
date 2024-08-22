@@ -70,10 +70,7 @@ Route::delete('/block/delete/{id}', [BlockController::class, 'destroy'])->name('
 });
 
 Route::controller(Invoice_typeController::class)->group(function(){
-     Route::get('/superadmin/invoce/type', 'index')->name('invoice.type');
-     Route::POST('/invoice/create', 'store')->name('invoice.store');
-     Route::put('/invoice/update',  'update')->name('invoice.update');
-     Route::delete('/inovice/delete/{id}', 'destroy')->name('invoice.delete');
+     Route::get('/superadmin/invoice/type', 'index')->name('invoice.type');
      Route::POST('/invoice/type/create', 'store')->name('type.create');
      Route::put('/invoice/type/update',  'update')->name('invoice.update');
      Route::delete('/inovice/type/delete/{id}', 'destroy')->name('invoice.delete');
