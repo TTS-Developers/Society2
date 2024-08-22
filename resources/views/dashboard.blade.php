@@ -117,21 +117,21 @@ Dashboard
                             <div class="col-lg-4">
                                 <div>
                                     <p class="mb-0">Monthly Billing (All Resident)</p>
-                                    <h4 class="my-1 text-white">1500,000</h4>
+                                    <h4 class="my-1 text-white">150,0000</h4>
                                     <p class="mb-0 font-13"><i class='bx bxs-up-arrow align-middle'></i> For The Month August 2024</p>
                                 </div>
                             </div>
                             <div class="col-lg-4">
                                 <div>
                                     <p class="mb-0">Recovery For The Month</p>
-                                    <h4 class="my-1 text-white">700,000</h4>
+                                    <h4 class="my-1 text-white">70,0000</h4>
                                     <p class="mb-0 font-13"><i class='bx bxs-up-arrow align-middle'></i> On 15th August</p>
                                 </div>
                             </div>
                             <div class="col-lg-4">
                                 <div>
                                     <p class="mb-0">Balance Recovery For The Month</p>
-                                    <h4 class="my-1 text-white">800,000</h4>
+                                    <h4 class="my-1 text-white">80,0000</h4>
                                     <p class="mb-0 font-13"><i class='bx bxs-down-arrow align-middle'></i> Total For Last August 2024</p>
                                 </div>
                             </div>
@@ -153,7 +153,7 @@ Dashboard
                         <div class="d-flex align-items-center">
                             <div>
                                 <p class="mb-0">0 - 10 Days</p>
-                                <h4 class="my-1">Rs: 500,000</h4>
+                                <h4 class="my-1">Rs: 50,0000</h4>
                                 <!-- <p class="mb-0 font-13"><i class="bx bxs-up-arrow align-middle"></i>$34 from last week</p> -->
                             </div>
                             <div class="widgets-icons ms-auto"><i class="bx bxs-wallet"></i>
@@ -168,7 +168,7 @@ Dashboard
                         <div class="d-flex align-items-center">
                             <div>
                                 <p class="mb-0">10 - 20 Days</p>
-                                <h4 class="my-1">Rs: 1000,00</h4>
+                                <h4 class="my-1">Rs: 10,0000</h4>
                                 <!-- <p class="mb-0 font-13"><i class='bx bxs-up-arrow align-middle'></i>$24 from last week</p> -->
                             </div>
                             <div class="widgets-icons ms-auto"><i class='bx bxs-wallet'></i>
@@ -183,7 +183,7 @@ Dashboard
                         <div class="d-flex align-items-center">
                             <div>
                                 <p class="mb-0">20 - 30 Days</p>
-                                <h4 class="my-1">Rs: 500,000</h4>
+                                <h4 class="my-1">Rs: 50,0000</h4>
                                 <!-- <p class="mb-0 font-13"><i class='bx bxs-down-arrow align-middle'></i>$34 from last week</p> -->
                             </div>
                             <div class="widgets-icons ms-auto"><i class='bx bxs-wallet'></i>
@@ -198,7 +198,7 @@ Dashboard
                         <div class="d-flex align-items-center">
                             <div>
                                 <p class="mb-0">30 - 60 Days</p>
-                                <h4 class="my-1">Rs: 2000,00</h4>
+                                <h4 class="my-1">Rs: 20,0000</h4>
                                 <!-- <p class="mb-0 font-13"><i class='bx bxs-down-arrow align-middle'></i>12.2% from last week</p> -->
                             </div>
                             <div class="widgets-icons ms-auto"><i class='bx bxs-wallet'></i>
@@ -235,7 +235,7 @@ Dashboard
                                         <td>
                                             <div class="d-flex align-items-center">
                                                 <div class="">
-                                                    <img src="assets/images/avatars/avatar-1.png" class="rounded-circle" width="46" height="46" alt="">
+                                                    <img src="assets/images/avatars/avatar-9.png" class="rounded-circle" width="46" height="46" alt="">
                                                 </div>
                                                 <div class="ms-2">
                                                     <h6 class="mb-1 font-14">Ali Muhammad</h6>
@@ -253,7 +253,7 @@ Dashboard
                                         <td>
                                             <div class="d-flex align-items-center">
                                                 <div class="">
-                                                    <img src="assets/images/avatars/avatar-2.png" class="rounded-circle" width="46" height="46" alt="">
+                                                    <img src="assets/images/avatars/avatar-1.png" class="rounded-circle" width="46" height="46" alt="">
                                                 </div>
                                                 <div class="ms-2">
                                                     <h6 class="mb-1 font-14">Abdul Wahab</h6>
@@ -310,7 +310,7 @@ Dashboard
                                         <td>
                                             <div class="d-flex align-items-center">
                                                 <div class="">
-                                                    <img src="assets/images/avatars/avatar-10.png" class="rounded-circle" width="46" height="46" alt="">
+                                                    <img src="assets/images/avatars/avatar-16.png" class="rounded-circle" width="46" height="46" alt="">
                                                 </div>
                                                 <div class="ms-2">
                                                     <h6 class="mb-1 font-14">Jawad Khan</h6>
@@ -477,7 +477,7 @@ Dashboard
                                         <td>
                                             <div class="d-flex align-items-center">
                                                 <div class="">
-                                                    <img src="assets/images/avatars/avatar-2.png" class="rounded-circle" width="46" height="46" alt="">
+                                                    <img src="assets/images/avatars/avatar-1.png" class="rounded-circle" width="46" height="46" alt="">
                                                 </div>
                                                 <div class="ms-2">
                                                     <h6 class="mb-1 font-14">Abdul Gafar</h6>
@@ -525,7 +525,7 @@ Dashboard
                                         <td>
                                             <div class="d-flex align-items-center">
                                                 <div class="">
-                                                    <img src="assets/images/avatars/avatar-10.png" class="rounded-circle" width="46" height="46" alt="">
+                                                    <img src="assets/images/avatars/avatar-9.png" class="rounded-circle" width="46" height="46" alt="">
                                                 </div>
                                                 <div class="ms-2">
                                                     <h6 class="mb-1 font-14">Mr Jawad Khan</h6>

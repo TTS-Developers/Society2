@@ -63,19 +63,7 @@
 					</ul>
 				</li>
 
-					<li>
-					<a href="javascript:;" class="has-arrow">
-						<div class="parent-icon"><i class="bx bx-category"></i>
-						</div>
-						<div class="menu-title">Invoice Type</div>
-					</a>
-					<ul>
-						
-						<li> <a href="{{route('invoice.type')}}"><i class='bx bx-radio-circle'></i>Manage Type</a>
-						</li>
-
-					</ul>
-				</li>
+				
 
 
 				<li>
@@ -107,9 +95,22 @@
 
 					</ul>
 				</li>
+				<li>
+					<a href="javascript:;" class="has-arrow">
+						<div class="parent-icon"><i class="bx bx-category"></i>
+						</div>
+						<div class="menu-title">Allotments</div>
+					</a>
+					<ul>
+						<li> <a href="{{ route('allotments.create') }}"><i class='bx bx-radio-circle'></i>Add Allotments</a>
+						</li>
+						<li> <a href="{{ route('allotments.index') }}"><i class='bx bx-radio-circle'></i>Manage Allotments</a>
+						</li>
+					</ul>
+				</li>
 
 
-                <li>
+                {{-- <li>
 					<a href="javascript:;" class="has-arrow">
 						<div class="parent-icon"><i class="bx bx-category"></i>
 						</div>
@@ -118,6 +119,21 @@
 					<ul>
 						<li> <a href="#"><i class='bx bx-radio-circle'></i>Manage Visitors</a>
 						</li>
+					</ul>
+				</li> --}}
+
+			
+				<li>
+					<a href="javascript:;" class="has-arrow">
+						<div class="parent-icon"><i class="bx bx-category"></i>
+						</div>
+						<div class="menu-title">Invoice Type</div>
+					</a>
+					<ul>
+						
+						<li> <a href="{{route('invoice.type')}}"><i class='bx bx-radio-circle'></i>Manage Type</a>
+						</li>
+
 					</ul>
 				</li>
 
@@ -138,39 +154,39 @@
 					</ul>
 				</li>
 
-                <li>
+				<li>
 					<a href="javascript:;" class="has-arrow">
 						<div class="parent-icon"><i class="bx bx-category"></i>
 						</div>
-						<div class="menu-title">Allotments</div>
+						<div class="menu-title">Complaint Type</div>
 					</a>
 					<ul>
-						<li> <a href="{{ route('allotments.create') }}"><i class='bx bx-radio-circle'></i>Add Allotments</a>
-						</li>
-						<li> <a href="{{ route('allotments.index') }}"><i class='bx bx-radio-circle'></i>Manage Allotments</a>
+						<li> <a href="{{route('complaint.type')}}"><i class='bx bx-radio-circle'></i>Manage Complaint Type</a>
 						</li>
 					</ul>
 				</li>
 
-                <li>
+				<li>
 					<a href="javascript:;" class="has-arrow">
 						<div class="parent-icon"><i class="bx bx-category"></i>
 						</div>
 						<div class="menu-title">Complaints</div>
 					</a>
 					<ul>
-						<li> <a href="#"><i class='bx bx-radio-circle'></i>Unresolved</a>
+                        {{-- <li> <a href="{{route('complaints.create')}}"><i class='bx bx-radio-circle'></i>Add Complaints</a>
+						</li> --}}
+						<li> <a href="{{route('complaints.unsolved')}}"><i class='bx bx-radio-circle'></i>Unresolved</a>
 						</li>
-						<li> <a href="#"><i class='bx bx-radio-circle'></i>In-progress</a>
+						<li> <a href="{{route('complaints.inprogress')}}"><i class='bx bx-radio-circle'></i>In-progress</a>
 						</li>
-                        <li> <a href="#"><i class='bx bx-radio-circle'></i>Resolved</a>
+                        <li> <a href="{{route('complaints.resolved')}}"><i class='bx bx-radio-circle'></i>Resolved</a>
 						</li>
-                        <li> <a href="#"><i class='bx bx-radio-circle'></i>All Complaints</a>
+                        <li> <a href="{{route('complaints.index')}}"><i class='bx bx-radio-circle'></i>All Complaints</a>
 						</li>
 					</ul>
 				</li>
 
-                <li>
+                {{-- <li>
 					<a href="javascript:;" class="has-arrow">
 						<div class="parent-icon"><i class="bx bx-category"></i>
 						</div>
@@ -182,9 +198,9 @@
 						<li> <a href="#"><i class='bx bx-radio-circle'></i>Manage Bill</a>
 						</li>
 					</ul>
-				</li>
+				</li> --}}
 
-                <li>
+                {{-- <li>
 					<a href="javascript:;" class="has-arrow">
 						<div class="parent-icon"><i class="bx bx-category"></i>
 						</div>
@@ -196,9 +212,9 @@
 						<li> <a href="#"><i class='bx bx-radio-circle'></i>Manage Security</a>
 						</li>
 					</ul>
-				</li>
+				</li> --}}
 
-                <li>
+                {{-- <li>
 					<a href="javascript:;" class="has-arrow">
 						<div class="parent-icon"><i class="bx bx-category"></i>
 						</div>
@@ -209,9 +225,9 @@
 						</li>
 
 					</ul>
-				</li>
+				</li> --}}
 
-                <li>
+                {{-- <li>
 					<a href="javascript:;" class="has-arrow">
 						<div class="parent-icon"><i class="bx bx-category"></i>
 						</div>
@@ -223,9 +239,9 @@
 						<li> <a href="#"><i class='bx bx-radio-circle'></i>Report Visitors</a>
 						</li>
 					</ul>
-				</li>
+				</li> --}}
 
-                <li>
+                {{-- <li>
 					<a href="javascript:;" class="has-arrow">
 						<div class="parent-icon"><i class="bx bx-category"></i>
 						</div>
@@ -239,9 +255,9 @@
                         <li> <a href="app-chat-box.html"><i class='bx bx-radio-circle'></i>Detail Maintenance</a>
 						</li>
 					</ul>
-				</li>
+				</li> --}}
 
-                <li>
+                {{-- <li>
 					<a href="javascript:;" class="has-arrow">
 						<div class="parent-icon"><i class="bx bx-category"></i>
 						</div>
@@ -251,7 +267,7 @@
 						<li> <a href="app-emailbox.html"><i class='bx bx-radio-circle'></i>User Register</a>
 						</li>
 					</ul>
-				</li>
+				</li> --}}
 			</ul>
 			<!--end navigation-->
 		</div>
@@ -839,7 +855,7 @@
 					</div>
 					<div class="user-box dropdown px-3">
 						<a class="d-flex align-items-center nav-link dropdown-toggle gap-3 dropdown-toggle-nocaret" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-							<img src="/assets/images/avatars/avatar-2.png" class="user-img" alt="user avatar">
+							<img src="/assets/images/avatars/avatar-8.png" class="user-img" alt="user avatar">
 							<div class="user-info">
 								<p class="user-name mb-0">{{ Auth::user()->name }}</p>
 								<p class="designattion mb-0">Web Designer</p>

@@ -11,10 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('block', function (Blueprint $table) {
+        Schema::create('complaint_type', function (Blueprint $table) {
             $table->id();
-
-            $table->string('Block_name');
+            $table->string('complaint_type');
             $table->timestamps();
         });
     }
@@ -24,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('block');
+        Schema::dropIfExists('complaint_type');
     }
 };

@@ -121,7 +121,7 @@
                 <div class="col-sm-6 col-md-3">
                     <div class="box">
                         <h4>Total Bill</h4>
-                        <p class="amount">PKR {{ $invoice->total }}</p>
+                        <p class="amount">Rs {{ $invoice->total }}</p>
                         <p class="description">For the month of {{ \Carbon\Carbon::parse($invoice->date)->format('F') }}</p>
                     </div>
                 </div>
@@ -135,14 +135,14 @@
                 <div class="col-sm-6 col-md-3">
                     <div class="box">
                         <h4 style="font-size: 15px">Payment After Due Date</h4>
-                        <p class="amount">PKR {{$invoice->after_due_date_amount}}</p>
+                        <p class="amount">Rs {{$invoice->amount_after_due_total}}</p>
                         <p class="description">As of 15/08/2024</p>
                     </div>
                 </div>
                 <div class="col-sm-6 col-md-3">
                     <div class="box">
                         <h5 style="font-size: 18px;">Per Flat Maintenace</h5>
-                        <p class="amount">PKR 200</p>
+                        <p class="amount">Rs 200</p>
                         <p class="description">As of 15/08/2024</p>
                     </div>
                 </div>
@@ -163,25 +163,25 @@
                 <thead>
                     <tr>
                         <th>S.No</th>
-                        <th>Invoice Type</th>
-                        <th>Amount (PKR)</th>
+                        <th>Month</th>
+                        <th>Bill</th>
                     </tr>
                 </thead>
                 <tbody>
                     @php
                         $totalAmount = 0;
                     @endphp
-                    @foreach($invoiceDetails as $key => $detail)
+                    @foreach($chart as $key => $detail)
                     <tr>
                         <td>{{ $key + 1 }}</td>
-                        <td>{{ $detail->type_name }}</td>
-                        <td>{{ $detail->amount }}</td>
+                        <td>{{ Carbon\Carbon::parse($detail->created_at)->format('F') }}</td>
+                        <td>{{ $detail->total }}</td>
                     </tr>
                     @endforeach
-                    <tr>
+                    {{-- <tr>
                         <td colspan="2" class="text-right"><strong>Total:</strong></td>
                         <td><strong>{{ $invoice->total }}</strong></td>
-                    </tr>
+                    </tr> --}}
                 </tbody>
             </table>
         </div>
@@ -228,15 +228,15 @@
             type: 'bar', // You can change to 'line', 'pie', etc.
             data: {
                 labels: [
-                    @foreach($invoiceDetails as $detail)
-                        '{{ $detail->type_name }}',
+                    @foreach($chart as $detail)
+                       '{{ Carbon\Carbon::parse($detail->created_at)->format('F') }}',
                     @endforeach
                 ],
                 datasets: [{
                     label: 'Amount in PKR',
                     data: [
-                        @foreach($invoiceDetails as $detail)
-                            {{ $detail->amount }},
+                        @foreach($chart as $detail)
+                            {{ $detail->total }},
                         @endforeach
                     ],
                     backgroundColor: 'rgba(75, 192, 192, 0.8)',

@@ -65,6 +65,22 @@
 					</ul>
 				</li>
 
+				<li>
+					<a href="javascript:;" class="has-arrow">
+						<div class="parent-icon"><i class="bx bx-category"></i>
+						</div>
+						<div class="menu-title">Complaints</div>
+					</a>
+					<ul>
+						
+						<li> <a href="{{route('complaints.create')}}"><i class='bx bx-radio-circle'></i>Add Complaints</a>
+						</li>
+						<li> <a href="{{route('action')}}"><i class='bx bx-radio-circle'></i>Action Complaints</a>
+						</li>
+
+					</ul>
+				</li>
+
 				
 
 

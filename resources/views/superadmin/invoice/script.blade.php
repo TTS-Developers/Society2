@@ -84,20 +84,23 @@ $(document).ready(function() {
 });
 
 document.addEventListener('DOMContentLoaded', function() {
-    const amountInputs = document.querySelectorAll('input[name="amount[]"]');
     const totalAmountField = document.getElementById('totalAmount');
     const amountAfterDueDateField = document.getElementById('amount_after_due_date');
     const subtotalField = document.getElementById('subtotal');
     
     function updateTotals() {
         let totalAmount = 0;
+        
+        // Re-fetch amount inputs every time
+        const amountInputs = document.querySelectorAll('input[name="amount[]"]');
+        
         amountInputs.forEach(input => {
             const value = parseFloat(input.value) || 0;
             totalAmount += value;
         });
 
         // Update total amount field
-        totalAmountField.value = `PKR ${totalAmount.toFixed(2)}`;
+        totalAmountField.value = ` ${totalAmount.toFixed(2)}`;
         
         // Get amount after due date
         const amountAfterDueDate = parseFloat(amountAfterDueDateField.value) || 0;
@@ -106,15 +109,20 @@ document.addEventListener('DOMContentLoaded', function() {
         const subtotal = totalAmount + amountAfterDueDate;
         
         // Update subtotal field
-        subtotalField.value = `PKR ${subtotal.toFixed(2)}`;
+        subtotalField.value = ` ${subtotal.toFixed(2)}`;
     }
 
-    // Add event listeners to amount inputs and amount after due date field
-    amountInputs.forEach(input => {
-        input.addEventListener('input', updateTotals);
+    // Add event listener for amount fields
+    document.getElementById('productTable').addEventListener('input', function(event) {
+        if (event.target.name === 'amount[]' || event.target.id === 'amount_after_due_date') {
+            updateTotals();
+        }
     });
 
-    amountAfterDueDateField.addEventListener('input', updateTotals);
+    // Bind event directly to Amount After Due Date field
+    amountAfterDueDateField.addEventListener('input', function() {
+        updateTotals();
+    });
     
     // Initial calculation
     updateTotals();
@@ -144,6 +152,9 @@ function addRow() {
 
     var cell5 = row.insertCell(4);
     cell5.innerHTML = '<button type="button" class="btn btn-danger" onclick="removeRow(this)">-</button>';
+    
+    // Recalculate totals whenever a new row is added
+    updateTotals();
 }
 
 function removeRow(button) {
