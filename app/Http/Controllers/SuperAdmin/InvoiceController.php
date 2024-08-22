@@ -28,14 +28,13 @@ class InvoiceController extends Controller
         $latestInvoice = DB::table('inv_master')->latest('id')->first();
     
         if ($latestInvoice) {
-            // Extract the latest number and increment it
-            $latestNumber = (int) substr($latestInvoice->Invoicenumber, 4); // Remove 'INV-' prefix
+            // Extract the latest number 
+            $latestNumber = (int) substr($latestInvoice->Invoicenumber, 4); 
             $nextNumber = $latestNumber + 1;
         } else {
             // Start from 1 if no invoices exist
             $nextNumber = 1;
         }
-        
         // Generate the new invoice number
         $invoiceNumber = 'INV-' . str_pad($nextNumber, 4, '0', STR_PAD_LEFT);
     
@@ -62,6 +61,9 @@ class InvoiceController extends Controller
             'Invoicenumber' => $request->Invoicenumber,
             'date' => $request->date,
             'description' => $request->description,
+            'total' => $request->totalAmount,
+            'after_due_date_amount' => $request->amount_after_due_date,
+            'amount_after_due_total' => $request->subtotal,
         ]);
 
         // Insert invoice detail records
@@ -70,6 +72,7 @@ class InvoiceController extends Controller
                 'inv_master_id' => $invoiceMaster->id,
                 'Invoice_type' => $type,
                 'amount' => $request->amount[$index],
+                'total' => $invoiceMaster->total,
             ]);
         }
 
@@ -94,11 +97,15 @@ class InvoiceController extends Controller
         )
         ->get();
         $totalAmount = $invoiceDetails->sum('amount');
+        $chart = InvMaster::get();
+        
 
         return view('superadmin.invoice.invoice', [
             'invoice' => $invoice,
             'invoiceDetails' => $invoiceDetails,
-            'totalAmount' => $totalAmount
+            'totalAmount' => $totalAmount,
+            'chart' => $chart
+
         ]);
     }
 

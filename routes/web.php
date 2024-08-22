@@ -1,18 +1,21 @@
 <?php
-
-
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SuperAdmin\FlatController;
 use App\Http\Controllers\SuperAdmin\InvoiceController;
 use App\Http\Controllers\SuperAdmin\BlockController;
-use App\Http\Controllers\SuperAdmin\FlatAreaController;
-use App\Http\Controllers\SuperAdmin\AllotmentsController;
-use App\Http\Controllers\SuperAdmin\Invoice_typeController;
-use App\Http\Controllers\SuperAdmin\SuperAdminRoleController;
 use App\Http\Controllers\User\MainController;
 use App\Http\Controllers\User\UserInvoiceController;
+use App\Http\Controllers\User\UserComplaintsController;
+use App\Http\Controllers\SuperAdmin\FlatAreaController;
+use App\Http\Controllers\SuperAdmin\AllotmentsController;
+use App\Http\Controllers\SuperAdmin\ComplaintsController;
+use App\Http\Controllers\SuperAdmin\Invoice_typeController;
+use App\Http\Controllers\SuperAdmin\SuperAdminRoleController;
+use App\Http\Controllers\SuperAdmin\ComplaintTypeController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -113,12 +116,25 @@ Route::controller(InvoiceController::class)->group(function(){
     Route::get('/additional/invoice/create','AdditionalInvoice')->name('additional.invoive');
     Route::POST('additional/create', 'AdditionalStore')->name('addi_invoice.store');
     Route::get('/additional/invoice/{id}', 'AdditionalInvoiceshow')->name('additional_invoice.show');
-    Route::get('/get-flats/{blockId}',  'getFlats');
-    Route::get('/get-owner/{flatId}', 'getOwner');
-
 });
 
-// User Routes
+Route::controller(ComplaintsController::class)->group(function(){
+    Route::get('/superadmin/complaints', 'all_complaints')->name('complaints.index');
+    Route::PUT('/superadmin/complaint/update/', 'update')->name('complaints.update');
+    Route::get('/get-flats/{blockId}',  'getFlats');
+    Route::get('/get-owner/{flatId}', 'getOwner');
+    Route::get('/superadmin/complaints/unsolved','unsolved')->name('complaints.unsolved');
+    Route::get('/superadmin/complaints/inprogress','inprogress')->name('complaints.inprogress');
+    Route::get('/superadmin/complaints/resolved','resolved')->name('complaints.resolved');
+});
+
+Route::controller(ComplaintTypeController::class)->group(function(){
+    Route::get('/superadmin/complaint_type','index')->name('complaint.type');
+    Route::POST('/complaint_type/create', 'store')->name('complaint_type.store');
+    Route::put('/complaint_type/update',  'update')->name('complaint_type.update');
+    Route::delete('/complaint_type/delete/{id}', 'destroy')->name('complaint_type.delete');
+});
+
 
 Route::controller(MainController::class)->group(function(){
     Route::get('user/dashboard', 'index')->name('user.dashboard');
@@ -128,6 +144,15 @@ Route::controller(MainController::class)->group(function(){
 Route::controller(UserInvoiceController::class)->group(function(){
     Route::get('/user/invoice/view/', 'viewInvoice')->name('view.invoice');
     Route::get('/user/additional/invoice', 'viewadditionalinvoice')->name('view_additional.invoice');
+});
+
+Route::controller(UserComplaintsController::class)->group(function(){
+    Route::get('/user/complaint/create','create')->name('complaints.create');
+    Route::POST('/complaint/create','store')->name('complaints.store');
+    Route::get('/user/complaints/action', 'complain_action')->name('action');
+    Route::get('/get-flats/{blockId}',  'getFlats');
+    Route::get('/get-owner/{flatId}', 'getOwner');
+
 });
 
 require __DIR__.'/auth.php';

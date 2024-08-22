@@ -194,13 +194,15 @@
 						<div class="menu-title">Complaints</div>
 					</a>
 					<ul>
-						<li> <a href="#"><i class='bx bx-radio-circle'></i>Unresolved</a>
+                        {{-- <li> <a href="{{route('complaints.create')}}"><i class='bx bx-radio-circle'></i>Add Complaints</a>
+						</li> --}}
+						<li> <a href="{{route('complaints.unsolved')}}"><i class='bx bx-radio-circle'></i>Unresolved</a>
 						</li>
-						<li> <a href="#"><i class='bx bx-radio-circle'></i>In-progress</a>
+						<li> <a href="{{route('complaints.inprogress')}}"><i class='bx bx-radio-circle'></i>In-progress</a>
 						</li>
-                        <li> <a href="#"><i class='bx bx-radio-circle'></i>Resolved</a>
+                        <li> <a href="{{route('complaints.resolved')}}"><i class='bx bx-radio-circle'></i>Resolved</a>
 						</li>
-                        <li> <a href="#"><i class='bx bx-radio-circle'></i>All Complaints</a>
+                        <li> <a href="{{route('complaints.index')}}"><i class='bx bx-radio-circle'></i>All Complaints</a>
 						</li>
 					</ul>
 				</li>
@@ -808,7 +810,7 @@
 					</div>
 					<div class="user-box dropdown px-3">
 						<a class="d-flex align-items-center nav-link dropdown-toggle gap-3 dropdown-toggle-nocaret" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-							<img src="/assets/images/avatars/avatar-2.png" class="user-img" alt="user avatar">
+							<img src="/assets/images/avatars/avatar-8.png" class="user-img" alt="user avatar">
 							<div class="user-info">
 								<p class="user-name mb-0"></p>
 {{--								{{ Auth::user()->name }}--}}
