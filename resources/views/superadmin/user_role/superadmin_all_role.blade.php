@@ -30,7 +30,7 @@
                                 @foreach($user as $item)
                                     <tr>
                                         {{-- <td> <img src="{{ asset($item->profile_photo_path) }}">  </td>--}}
-                                        <td><img src="{{ asset('upload/admin_images/' . $item->profile_photo_path) }}"style="width: 50px; height: 50px;"></td>
+                                        <td><img src="{{ asset('upload/admin_images/' . $item->profile_photo_path) }}" style="width: 50px; height: 50px;"></td>
                                         <td>{{ $item->name }}  </td>
                                         <td>{{ $item->email  }}  </td>
                                          <td width="40%">

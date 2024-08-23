@@ -55,6 +55,7 @@ class AllotmentsController extends Controller
             'owner_nic' => 'required|string|max:255',
             'member_contact' => 'nullable|digits_between:10,15',
             'password' => 'required|string|min:8|confirmed',
+//            'password_confirmation' => 'required|string|min:8|confirmed',
         ]);
 
         Allotment::create([

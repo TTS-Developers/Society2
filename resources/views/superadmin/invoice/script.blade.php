@@ -88,28 +88,36 @@ document.addEventListener('DOMContentLoaded', function() {
     const amountAfterDueDateField = document.getElementById('amount_after_due_date');
     const subtotalField = document.getElementById('subtotal');
     
+    function formatCurrency(value) {
+        // Convert number to the format "65,00.00"
+        return value.toLocaleString('de-DE', {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+        }).replace('.', ',').replace(/(\d+),(\d{2})$/, '$1.$2');
+    }
+
     function updateTotals() {
         let totalAmount = 0;
-        
+
         // Re-fetch amount inputs every time
         const amountInputs = document.querySelectorAll('input[name="amount[]"]');
-        
+
         amountInputs.forEach(input => {
-            const value = parseFloat(input.value) || 0;
+            const value = parseFloat(input.value.replace(',', '.')) || 0;
             totalAmount += value;
         });
 
         // Update total amount field
-        totalAmountField.value = ` ${totalAmount.toFixed(2)}`;
-        
+        totalAmountField.value = formatCurrency(totalAmount);
+
         // Get amount after due date
-        const amountAfterDueDate = parseFloat(amountAfterDueDateField.value) || 0;
-        
+        const amountAfterDueDate = parseFloat(amountAfterDueDateField.value.replace(',', '.')) || 0;
+
         // Calculate subtotal
         const subtotal = totalAmount + amountAfterDueDate;
-        
+
         // Update subtotal field
-        subtotalField.value = ` ${subtotal.toFixed(2)}`;
+        subtotalField.value = formatCurrency(subtotal);
     }
 
     // Add event listener for amount fields
@@ -123,10 +131,11 @@ document.addEventListener('DOMContentLoaded', function() {
     amountAfterDueDateField.addEventListener('input', function() {
         updateTotals();
     });
-    
+
     // Initial calculation
     updateTotals();
 });
+
 
 function addRow() {
     var table = document.getElementById('productTable');

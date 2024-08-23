@@ -52,17 +52,48 @@
 						<div class="menu-title">Dashboard</div>
 					</a>
 				</li>
+{{--				@php--}}
+{{--				  $block = (auth()->user()->block == 1);--}}
+{{--				  $invoiceType = (auth()->user()->invoice_type == 1);--}}
+{{--				  $flatArea = (auth()->user()->flat_area == 1);--}}
+{{--				  $flats = (auth()->user()->flats == 1);--}}
+{{--				  $visitor = (auth()->user()->visitors == 1);--}}
+{{--				  $invoice = (auth()->user()->invoice == 1);--}}
+{{--				  $allotment = (auth()->user()->allotment == 1);--}}
+{{--				  $complaint = (auth()->user()->complaint == 1);--}}
+{{--				  $adminuserrole = (auth()->user()->adminuserregister == 1);--}}
+{{--			    @endphp--}}
 				@php
-				  $block = (auth()->user()->block == 1);
-				  $invoiceType = (auth()->user()->invoice_type == 1);
-				  $flatArea = (auth()->user()->flat_area == 1);
-				  $flats = (auth()->user()->flats == 1);
-				  $visitor = (auth()->user()->visitors == 1);
-				  $invoice = (auth()->user()->invoice == 1);
-				  $allotment = (auth()->user()->allotment == 1);
-				  $complaint = (auth()->user()->complaint == 1);
-				  $adminuserrole = (auth()->user()->adminuserregister == 1);
-			    @endphp
+					// Check if user is authenticated
+					if (auth()->check()) {
+						// Check if any critical user information is null
+						if (is_null(auth()->user()->block) || is_null(auth()->user()->invoice_type) ||
+							is_null(auth()->user()->flat_area) || is_null(auth()->user()->flats) ||
+							is_null(auth()->user()->visitors) || is_null(auth()->user()->invoice) ||
+							is_null(auth()->user()->allotment) || is_null(auth()->user()->complaint) ||
+							is_null(auth()->user()->adminuserregister)) {
+
+							// Redirect to the login page
+							header('Location: ' . route('login'));
+							exit;
+						}
+
+						// Assign user attributes to variables
+						$block = auth()->user()->block == 1;
+						$invoiceType = auth()->user()->invoice_type == 1;
+						$flatArea = auth()->user()->flat_area == 1;
+						$flats = auth()->user()->flats == 1;
+						$visitor = auth()->user()->visitors == 1;
+						$invoice = auth()->user()->invoice == 1;
+						$allotment = auth()->user()->allotment == 1;
+						$complaint = auth()->user()->complaint == 1;
+						$adminuserrole = auth()->user()->adminuserregister == 1;
+					} else {
+						// If user is not authenticated, redirect to login
+						header('Location: ' . route('login'));
+						exit;
+					}
+				@endphp
 
 				@if($block == true)
 				<li {{($prefix  == '/block')? 'active': ''}}>

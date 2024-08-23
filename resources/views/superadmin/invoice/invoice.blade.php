@@ -135,7 +135,7 @@
                 <div class="col-sm-6 col-md-3">
                     <div class="box">
                         <h4 style="font-size: 15px">Payment After Due Date</h4>
-                        <p class="amount">Rs {{$invoice->amount_after_due_total}}</p>
+                        <p class="amount">Rs {{$invoice->after_due_date_amount}}</p>
                         <p class="description">As of 15/08/2024</p>
                     </div>
                 </div>
