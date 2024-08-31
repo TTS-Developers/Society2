@@ -52,49 +52,53 @@
 						<div class="menu-title">Dashboard</div>
 					</a>
 				</li>
-{{--				@php--}}
-{{--				  $block = (auth()->user()->block == 1);--}}
-{{--				  $invoiceType = (auth()->user()->invoice_type == 1);--}}
-{{--				  $flatArea = (auth()->user()->flat_area == 1);--}}
-{{--				  $flats = (auth()->user()->flats == 1);--}}
-{{--				  $visitor = (auth()->user()->visitors == 1);--}}
-{{--				  $invoice = (auth()->user()->invoice == 1);--}}
-{{--				  $allotment = (auth()->user()->allotment == 1);--}}
-{{--				  $complaint = (auth()->user()->complaint == 1);--}}
-{{--				  $adminuserrole = (auth()->user()->adminuserregister == 1);--}}
-{{--			    @endphp--}}
+				{{--				@php--}}
+{{--					// Check if user is authenticated--}}
+{{--					if (auth()->check()) {--}}
+{{--						// Check if any critical user information is null--}}
+{{--						if (is_null(auth()->user()->block) || is_null(auth()->user()->invoice_type) ||--}}
+{{--							is_null(auth()->user()->flat_area) || is_null(auth()->user()->flats) ||--}}
+{{--							is_null(auth()->user()->visitors) || is_null(auth()->user()->invoice) ||--}}
+{{--							is_null(auth()->user()->allotment) || is_null(auth()->user()->complaint) ||--}}
+{{--							is_null(auth()->user()->adminuserregister)) {--}}
+
+{{--							// Redirect to the login page--}}
+{{--							header('Location: ' . route('login'));--}}
+{{--							exit;--}}
+{{--						}--}}
+
+{{--						// Assign user attributes to variables--}}
+{{--						$block = auth()->user()->block == 1;--}}
+{{--						$invoiceType = auth()->user()->invoice_type == 1;--}}
+{{--						$flatArea = auth()->user()->flat_area == 1;--}}
+{{--						$flats = auth()->user()->flats == 1;--}}
+{{--						$visitor = auth()->user()->visitors == 1;--}}
+{{--						$invoice = auth()->user()->invoice == 1;--}}
+{{--						$allotment = auth()->user()->allotment == 1;--}}
+{{--						$complaint = auth()->user()->complaint == 1;--}}
+{{--						$adminuserrole = auth()->user()->adminuserregister == 1;--}}
+{{--					} else {--}}
+{{--						// If user is not authenticated, redirect to login--}}
+{{--						header('Location: ' . route('login'));--}}
+{{--						exit;--}}
+{{--					}--}}
+{{--				@endphp--}}
 				@php
-					// Check if user is authenticated
-					if (auth()->check()) {
-						// Check if any critical user information is null
-						if (is_null(auth()->user()->block) || is_null(auth()->user()->invoice_type) ||
-							is_null(auth()->user()->flat_area) || is_null(auth()->user()->flats) ||
-							is_null(auth()->user()->visitors) || is_null(auth()->user()->invoice) ||
-							is_null(auth()->user()->allotment) || is_null(auth()->user()->complaint) ||
-							is_null(auth()->user()->adminuserregister)) {
-
-							// Redirect to the login page
-							header('Location: ' . route('login'));
-							exit;
-						}
-
-						// Assign user attributes to variables
-						$block = auth()->user()->block == 1;
-						$invoiceType = auth()->user()->invoice_type == 1;
-						$flatArea = auth()->user()->flat_area == 1;
-						$flats = auth()->user()->flats == 1;
-						$visitor = auth()->user()->visitors == 1;
-						$invoice = auth()->user()->invoice == 1;
-						$allotment = auth()->user()->allotment == 1;
-						$complaint = auth()->user()->complaint == 1;
-						$adminuserrole = auth()->user()->adminuserregister == 1;
-					} else {
-						// If user is not authenticated, redirect to login
-						header('Location: ' . route('login'));
-						exit;
-					}
-				@endphp
-
+				if (auth()->check() && auth()->user() !== null){
+				  $block = (auth()->user()->block == 1);
+				  $invoiceType = (auth()->user()->invoice_type == 1);
+				  $flatArea = (auth()->user()->flat_area == 1);
+				  $flats = (auth()->user()->flats == 1);
+				  $visitor = (auth()->user()->visitors == 1);
+				  $invoice = (auth()->user()->invoice == 1);
+				  $allotment = (auth()->user()->allotment == 1);
+				  $complaint = (auth()->user()->complaint == 1);
+				  $adminuserrole = (auth()->user()->adminuserregister == 1);
+				} else {
+					 echo "<script>window.location.href = '".route('login')."';</script>";
+					 exit;
+				}
+			    @endphp
 				@if($block == true)
 				<li {{($prefix  == '/block')? 'active': ''}}>
 					<a href="javascript:;" class="has-arrow">
@@ -254,6 +258,152 @@
 				</li>
 				@else
 				@endif
+
+{{--				@if($visitor == true)--}}
+                <li {{($prefix  == '/visitor')? 'active': ''}}>
+					<a href="javascript:;" class="has-arrow">
+						<div class="parent-icon"><i class="bx bx-category"></i>
+						</div>
+						<div class="menu-title">Employees</div>
+					</a>
+					<ul>
+						<li> <a href="{{route('employees.index')}}"><i class='bx bx-radio-circle'></i>Manage Employees</a>
+						</li>
+						<li> <a href="{{route('employees.create')}}"><i class='bx bx-radio-circle'></i>Add Employees</a>
+						</li>
+					</ul>
+				</li>
+{{--				@else--}}
+{{--				@endif--}}
+				{{--				@if($visitor == true)--}}
+                <li {{($prefix  == '/payroll')? 'active': ''}}>
+					<a href="javascript:;" class="has-arrow">
+						<div class="parent-icon"><i class="bx bx-category"></i>
+						</div>
+						<div class="menu-title">Payroll</div>
+					</a>
+					<ul>
+						<li> <a href="{{route('payroll.index')}}"><i class='bx bx-radio-circle'></i>Manage Payroll</a>
+						</li>
+						<li> <a href="{{route('payroll.create')}}"><i class='bx bx-radio-circle'></i>Add Payroll</a>
+						</li>
+					</ul>
+				</li>
+{{--				@else--}}
+{{--				@endif--}}
+				{{--				@endif--}}
+				{{--				@if($visitor == true)--}}
+                <li {{($prefix  == '/attendance')? 'active': ''}}>
+					<a href="javascript:;" class="has-arrow">
+						<div class="parent-icon"><i class="bx bx-category"></i>
+						</div>
+						<div class="menu-title">Attendance</div>
+					</a>
+					<ul>
+						<li> <a href="{{route('attendance.index')}}"><i class='bx bx-radio-circle'></i>Manage Attendance</a>
+						</li>
+						<li> <a href="{{route('attendance.create')}}"><i class='bx bx-radio-circle'></i>Add Attendance</a>
+						</li>
+					</ul>
+				</li>
+{{--				@else--}}
+{{--				@endif--}}
+
+				{{-- @if($visitor == true)--}}
+                <li {{($prefix  == '/leave')? 'active': ''}}>
+					<a href="javascript:;" class="has-arrow">
+						<div class="parent-icon"><i class="bx bx-category"></i>
+						</div>
+						<div class="menu-title">Leave</div>
+					</a>
+					<ul>
+						<li> <a href="{{route('leave.index')}}"><i class='bx bx-radio-circle'></i>Manage Leave</a>
+						</li>
+						<li> <a href="{{route('leave.create')}}"><i class='bx bx-radio-circle'></i>Add Leave</a>
+						</li>
+					</ul>
+				</li>
+{{--				@else--}}
+{{--				@endif--}}
+
+					{{-- @if($visitor == true)--}}
+                <li {{($prefix  == '/role')? 'active': ''}}>
+					<a href="javascript:;" class="has-arrow">
+						<div class="parent-icon"><i class="bx bx-category"></i>
+						</div>
+						<div class="menu-title">Roles</div>
+					</a>
+					<ul>
+						<li> <a href="{{route('role.index')}}"><i class='bx bx-radio-circle'></i>Manage Roles</a>
+						</li>
+						<li> <a href="{{route('role.create')}}"><i class='bx bx-radio-circle'></i>Add Roles</a>
+						</li>
+					</ul>
+				</li>
+{{--				@else--}}
+{{--				@endif--}}
+{{--					 @if($visitor == true)--}}
+                <li {{($prefix  == '/user_role')? 'active': ''}}>
+					<a href="javascript:;" class="has-arrow">
+						<div class="parent-icon"><i class="bx bx-category"></i>
+						</div>
+						<div class="menu-title">User Role</div>
+					</a>
+					<ul>
+						<li> <a href="{{route('user_role.index')}}"><i class='bx bx-radio-circle'></i>Manage User Role</a>
+						</li>
+						<li> <a href="{{route('user_role.create')}}"><i class='bx bx-radio-circle'></i>Add User Role</a>
+						</li>
+					</ul>
+				</li>
+{{--				@else--}}
+{{--				@endif--}}
+{{--				@if($visitor == true)--}}
+                <li {{($prefix  == '/hr_notification')? 'active': ''}}>
+					<a href="javascript:;" class="has-arrow">
+						<div class="parent-icon"><i class="bx bx-category"></i>
+						</div>
+						<div class="menu-title">Hr Notification</div>
+					</a>
+					<ul>
+						<li> <a href="{{route('hr_notification.index')}}"><i class='bx bx-radio-circle'></i>Manage Hr Notification</a>
+						</li>
+						<li> <a href="{{route('hr_notification.create')}}"><i class='bx bx-radio-circle'></i>Add HR Notification</a>
+						</li>
+					</ul>
+				</li>
+{{--				@else--}}
+{{--				@endif--}}
+{{--				@if($visitor == true)--}}
+                <li {{($prefix  == '/activity_logs')? 'active': ''}}>
+					<a href="javascript:;" class="has-arrow">
+						<div class="parent-icon"><i class="bx bx-category"></i>
+						</div>
+						<div class="menu-title">Activity Logs</div>
+					</a>
+					<ul>
+						<li> <a href="{{route('activity_logs.index')}}"><i class='bx bx-radio-circle'></i>Manage Activity Log</a>
+						</li>
+						<li> <a href="{{route('activity_logs.create')}}"><i class='bx bx-radio-circle'></i>Add Activity Log</a>
+						</li>
+					</ul>
+				</li>
+{{--				@else--}}
+{{--				@endif--}}
+				<li {{($prefix  == '/permissions')? 'active': ''}}>
+					<a href="javascript:;" class="has-arrow">
+						<div class="parent-icon"><i class="bx bx-category"></i>
+						</div>
+						<div class="menu-title">Permissions</div>
+					</a>
+					<ul>
+						<li> <a href="{{route('permissions.index')}}"><i class='bx bx-radio-circle'></i>Manage Permissions</a>
+						</li>
+						<li> <a href="{{route('permissions.create')}}"><i class='bx bx-radio-circle'></i>Add Permissions</a>
+						</li>
+					</ul>
+				</li>
+
 			</ul>
 			<!--end navigation-->
 		</div>

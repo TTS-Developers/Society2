@@ -14,6 +14,15 @@ use App\Http\Controllers\SuperAdmin\ComplaintsController;
 use App\Http\Controllers\SuperAdmin\Invoice_typeController;
 use App\Http\Controllers\SuperAdmin\SuperAdminRoleController;
 use App\Http\Controllers\SuperAdmin\ComplaintTypeController;
+use App\Http\Controllers\SuperAdmin\EmployeesController;
+use App\Http\Controllers\SuperAdmin\PayrollController;
+use App\Http\Controllers\SuperAdmin\AttendanceController;
+use App\Http\Controllers\SuperAdmin\LeaveController;
+use App\Http\Controllers\Superadmin\RolesController;
+use App\Http\Controllers\Superadmin\UserRolesController;
+use App\Http\Controllers\Superadmin\HrNotificationController;
+use App\Http\Controllers\Superadmin\ActivityLogsController;
+use App\Http\Controllers\Superadmin\PermissionController;
 
 
 /*
@@ -30,11 +39,11 @@ use App\Http\Controllers\SuperAdmin\ComplaintTypeController;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::group(['prefix'=> 'admin', 'middleware'=>['admin:admin']], function(){
-    Route::get('/', [HomeController::class, 'index']);
-    Route::get('/get-flats/{blockId}', [HomeController::class, 'getFlats']);
-    Route::post('flat-login', [HomeController::class, 'login'])->name('flat.login');
-});
+//Route::group(['prefix'=> 'admin', 'middleware'=>['admin:admin']], function(){
+//    Route::get('/', [HomeController::class, 'index']);
+//    Route::get('/get-flats/{blockId}', [HomeController::class, 'getFlats']);
+//    Route::post('flat-login', [HomeController::class, 'login'])->name('flat.login');
+//});
 
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/get-flats/{blockId}', [HomeController::class, 'getFlats']);
@@ -135,11 +144,9 @@ Route::controller(ComplaintTypeController::class)->group(function(){
     Route::delete('/complaint_type/delete/{id}', 'destroy')->name('complaint_type.delete');
 });
 
-
 Route::controller(MainController::class)->group(function(){
     Route::get('user/dashboard', 'index')->name('user.dashboard');
 });
-
 
 Route::controller(UserInvoiceController::class)->group(function(){
     Route::get('/user/invoice/view/', 'viewInvoice')->name('view.invoice');
@@ -155,4 +162,92 @@ Route::controller(UserComplaintsController::class)->group(function(){
 
 });
 
+Route::controller(EmployeesController::class)->group(function(){
+    Route::get('/superadmin/employees', 'index')->name('employees.index');
+    Route::get('/superadmin/employees/create', 'create')->name('employees.create');
+    Route::Post('/superadmin/employees/store', 'store')->name('employees.store');
+    Route::get('/superadmin/employees/edit/{id}', 'edit')->name('employees.edit');
+    Route::post('/superadmin/update/{id}', 'update')->name('employees.update');
+    Route::get('/superadmin/delete/{id}', 'destroy')->name('employees.delete');
+});
+
+Route::controller(PayrollController::class)->group(function (){
+    Route::get('/superadmin/payroll', 'index')->name('payroll.index');
+    Route::get('/superadmin/payroll/create', 'create')->name('payroll.create');
+    Route::post('/superadmin/payroll/store', 'store')->name('payroll.store');
+    Route::get('/superadmin/payroll/edit/{id}', 'edit')->name('payroll.edit');
+    Route::post('/superadmin/payroll/update/{id}', 'update')->name('payroll.update');
+    Route::get('/superadmin/payroll/delete/{id}', 'destroy')->name('payroll.delete');
+});
+
+Route::controller(AttendanceController::class)->group(function (){
+    Route::get('/superadmin/attendance','index')->name('attendance.index');
+    Route::get('/superadmin/attendance/create','create')->name('attendance.create');
+    Route::post('/superadmin/attendance/store','store')->name('attendance.store');
+    Route::get('/superadmin/attendance/edit/{id}','edit')->name('attendance.edit');
+    Route::post('/superadmin/attendance/update/{id}','update')->name('attendance.update');
+    Route::get('/superadmin/attendance/delete/{id}','destroy')->name('attendance.delete');
+});
+
+
+Route::controller(LeaveController::class)->group(function(){
+   Route::get('superadmin/leave','index')->name('leave.index');
+   Route::get('superadmin/leave/create','create')->name('leave.create');
+   Route::post('superadmin/leave/store','store')->name('leave.store');
+   Route::get('superadmin/leave/edit/{id}','edit')->name('leave.edit');
+   Route::post('superadmin/leave/update/{id}','update')->name('leave.update');
+   Route::get('superadmin/leave/delete/{id}','destroy')->name('leave.delete');
+});
+
+Route::controller(RolesController::class)->group(function (){
+    Route::get('superadmin/roles', 'index')->name('role.index');
+    Route::get('superadmin/roles/create', 'create')->name('role.create');
+    Route::post('superadmin/roles/store', 'store')->name('role.store');
+    Route::get('superadmin/roles/edit/{id}', 'edit')->name('role.edit');
+    Route::post('superadmin/roles/update/{id}', 'update')->name('role.update');
+    Route::get('superadmin/roles/delete/{id}', 'destroy')->name('role.destroy');
+});
+Route::controller(RolesController::class)->group(function (){
+    Route::get('superadmin/roles', 'index')->name('role.index');
+    Route::get('superadmin/roles/create', 'create')->name('role.create');
+    Route::post('superadmin/roles/store', 'store')->name('role.store');
+    Route::get('superadmin/roles/edit/{id}', 'edit')->name('role.edit');
+    Route::post('superadmin/roles/update/{id}', 'update')->name('role.update');
+    Route::get('superadmin/roles/delete/{id}', 'destroy')->name('role.destroy');
+});
+
+Route::controller(UserRolesController::class)->group(function (){
+    Route::get('superadmin/user_roles', 'index')->name('user_role.index');
+    Route::get('superadmin/user_roles/create', 'create')->name('user_role.create');
+    Route::post('superadmin/user_role/store', 'store')->name('user_role.store');
+    Route::get('superadmin/user_role/edit/{id}', 'edit')->name('user_role.edit');
+    Route::post('superadmin/user_role/update/{id}', 'update')->name('user_role.update');
+    Route::get('superadmin/user_role/delete/{id}', 'destroy')->name('user_role.destroy');
+});
+
+Route::controller(HrNotificationController::class)->group(function (){
+    Route::get('superadmin/hr_notification', 'index')->name('hr_notification.index');
+    Route::get('superadmin/hr_notification/create', 'create')->name('hr_notification.create');
+    Route::post('superadmin/hr_notification/store', 'store')->name('hr_notification.store');
+    Route::get('superadmin/hr_notification/edit/{id}', 'edit')->name('hr_notification.edit');
+    Route::post('superadmin/hr_notification/update/{id}', 'update')->name('hr_notification.update');
+    Route::get('superadmin/hr_notification/delete/{id}', 'destroy')->name('hr_notification.destroy');
+});
+Route::controller(ActivityLogsController::class)->group(function (){
+    Route::get('superadmin/activity_logs', 'index')->name('activity_logs.index');
+    Route::get('superadmin/activity_logs/create', 'create')->name('activity_logs.create');
+    Route::post('superadmin/activity_logs/store', 'store')->name('activity_logs.store');
+    Route::get('superadmin/activity_logs/edit/{id}', 'edit')->name('activity_logs.edit');
+    Route::post('superadmin/activity_logs/update/{id}', 'update')->name('activity_logs.update');
+    Route::get('superadmin/activity_logs/delete/{id}', 'destroy')->name('activity_logs.destroy');
+});
+
+Route::controller(PermissionController::class)->group(function (){
+    Route::get('superadmin/permissions', 'index')->name('permissions.index');
+    Route::get('superadmin/permissions/create', 'create')->name('permissions.create');
+    Route::post('superadmin/permissions/store', 'store')->name('permissions.store');
+    Route::get('superadmin/permissions/edit/{id}', 'edit')->name('permissions.edit');
+    Route::post('superadmin/permissions/update/{id}', 'update')->name('permissions.update');
+    Route::get('superadmin/permissions/delete/{id}', 'destroy')->name('permissions.destroy');
+});
 require __DIR__.'/auth.php';
